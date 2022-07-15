@@ -5,7 +5,6 @@
     <title>Sample FirebaseUI App</title>
     <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
     <script>
-        // Initialize Firebase
         const config = {
             apiKey: "AIzaSyDkL13QO-XpgMFNuZDwAZ1hF88Yu8w6N3c",
             authDomain: "react-app-70676.firebaseapp.com",
@@ -15,34 +14,21 @@
             appId: "1:816550760594:web:4967a33f72e300540d964b"
         };
         firebase.initializeApp(config);
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css"/>
 
-    <script type="text/javascript">
-        // FirebaseUI config.
-        var uiConfig = {
-            signInFlow: 'popup',
-            signInSuccessUrl: '/signedIn',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID
-            ],
-            // tosUrl and privacyPolicyUrl accept either url string or a callback
-            // function.
-            // Terms of service url/callback.
-            tosUrl: '<your-tos-url>',
-            // Privacy policy url/callback.
-        };
+        let provider = new firebase.auth.GoogleAuthProvider();
 
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                console.log(user.displayName)
+                console.log(user.photoURL)
+            } else {
+                // No user is signed in.
+            }
+        });
+
+        firebase.auth().signInWithPopup(provider);
     </script>
 </head>
 <body>
-<div id="firebaseui-auth-container"></div>
 </body>
 </html>
