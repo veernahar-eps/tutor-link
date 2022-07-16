@@ -15,18 +15,17 @@
         };
         firebase.initializeApp(config);
 
+
         let provider = new firebase.auth.GoogleAuthProvider();
 
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                console.log(user.displayName)
-                console.log(user.photoURL)
+                window.location.href = "/html/dash.html"
             } else {
-                // No user is signed in.
+                firebase.auth().signInWithPopup(provider);
             }
         });
 
-        firebase.auth().signInWithPopup(provider);
     </script>
 </head>
 <body>
