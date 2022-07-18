@@ -11,10 +11,11 @@ if (data) {
     console.log(displayName)
     console.log(photoURL)
 
-    document.getElementById("logged_out").style.display = 'none'
-    document.getElementById("profile").src = photoURL
+    document.getElementById("student_login").style.display = 'none'
+    document.getElementById("tutor_login").style.display = 'none'
+    document.getElementById("profile_pic").src = photoURL
     document.getElementById("display_name").innerText = displayName
 
 } else {
-    document.getElementById("logged_in").style.display = 'none'
+    document.getElementById("profile_nav").style.display = 'none'
 }

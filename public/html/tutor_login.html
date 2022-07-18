@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Android</title>
+    <!-- Page styles -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css"/>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script>
+        const config = {
+            apiKey: "AIzaSyDkL13QO-XpgMFNuZDwAZ1hF88Yu8w6N3c",
+            authDomain: "react-app-70676.firebaseapp.com",
+            projectId: "react-app-70676",
+            storageBucket: "react-app-70676.appspot.com",
+            messagingSenderId: "816550760594",
+            appId: "1:816550760594:web:4967a33f72e300540d964b"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+              <a class="logo-text">TUTOR LINK</a>
+              <!--            <img class="android-logo-image" src="images/logo.png">-->
+          </span>
+            <div class="android-header-spacer mdl-layout-spacer"></div>
+            <div class="android-navigation-container">
+                <nav class="android-navigation mdl-navigation">
+                    <a id="logged_out" class="mdl-navigation__link mdl-typography--text-uppercase"
+                       href="../index.html">Home</a>
+                </nav>
+            </div>
+            <span class="android-mobile-title mdl-layout-title">
+            <a class="logo-text">TUTOR LINK</a>
+          </span>
+        </div>
+    </div>
+
+    <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <a class="logo-text">TUTOR LINK</a>
+        </span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Home</a>
+        </nav>
+    </div>
+
+    <div class="android-content mdl-layout__content">
+        <div id="sign_up" class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: 200px auto 0; min-width: 40%">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Welcome</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Welcome to TutorLink!
+                <br>
+                Answer a few more questions to complete sign up
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a id="Get Started" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="../js/tutor_login.js"></script>
+</body>
+</html>
