@@ -11,8 +11,8 @@ try {
     document.getElementById("profile_nav").style.display = 'none'
 }
 
-
 async function handleUserexists(user) {
+
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         if (!snapshot.exists()) {
             logOut();
@@ -29,8 +29,6 @@ async function handleUserexists(user) {
             document.getElementById("tutor_login").style.display = 'none'
             document.getElementById("profile_pic").src = photoURL
             document.getElementById("display_name").innerText = displayName
-
-            //hi
         }
     });
 }
