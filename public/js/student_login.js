@@ -24,11 +24,14 @@ function handleUser(exists, user) {
             const grad = document.getElementById('grad').value;
             const stuff = document.getElementById('stuff').value;
 
-            console.log([uni, grad, stuff])
             addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, stuff)
             window.location.href = "/html/dash.html"
+
+            // TODO add to local storage
         });
     }
+
+    
 }
 
 function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, stuff) {

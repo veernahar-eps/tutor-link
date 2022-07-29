@@ -85,6 +85,10 @@ function addUser() {
   })
 }
 
+function checkUser() {
+  
+}
+
 // Log out
 const logout = async () => {
   await signOut(auth);
