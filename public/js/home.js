@@ -2,12 +2,12 @@ const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 
 if (data.user) {
-    checkUserExists(data.user).then(r => r);
+    handleUserexists(data.user)
 } else {
     document.getElementById("profile_nav").style.display = 'none'
 }
 
-async function checkUserExists(user) {
+async function handleUserexists(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         if (!snapshot.exists()) {
             logOut();
