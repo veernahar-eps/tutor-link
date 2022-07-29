@@ -25,26 +25,26 @@ function handleUser(exists, user) {
             const bio = document.getElementById('bio').value;
 
             console.log([uni, grad, bio])
-            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio)
+            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio, 'student')
             window.location.href = "/html/dash.html"
         });
     }
 }
 
-function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio) {
-    const database = firebase.database();
-    database.ref('users/' + userId).set({
-        userData: {
-            displayName: name,
-            photoURL: imageUrl,
-            email: email,
-            school: school,
-            grad: grad,
-            bio: bio,
-        },
-        accountType: 'student'
-    });
-}
+// function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio) {
+//     const database = firebase.database();
+//     database.ref('users/' + userId).set({
+//         userData: {
+//             displayName: name,
+//             photoURL: imageUrl,
+//             email: email,
+//             school: school,
+//             grad: grad,
+//             bio: bio,
+//         },
+//         accountType: 'student'
+//     });
+// }
 
 async function checkUserOnDatabase(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
