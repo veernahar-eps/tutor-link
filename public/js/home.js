@@ -1,11 +1,16 @@
 const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 
-if (data.user) {
-    handleUserexists(data.user)
-} else {
+try {
+    if (data.user) {
+        handleUserexists(data.user)
+    } else {
+        document.getElementById("profile_nav").style.display = 'none'
+    }
+} catch (error) {
     document.getElementById("profile_nav").style.display = 'none'
 }
+
 
 async function handleUserexists(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
@@ -18,7 +23,7 @@ async function handleUserexists(user) {
             const photoURL = json['photoURL']
 
             console.log(displayName)
-            console.log(photoURL)
+            console.log(photoURL)  
 
             document.getElementById("student_login").style.display = 'none'
             document.getElementById("tutor_login").style.display = 'none'
