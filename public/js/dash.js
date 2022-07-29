@@ -10,6 +10,6 @@ function logOut() {
 
 function printUsers() {
     firebase.database().ref("users").orderByChild("accountType").equalTo("tutor").on("child_added", (snapshot) => {
-        console.log(snapshot.val());
+        console.log(snapshot.val()['userData']['displayName']);
     });
 }
