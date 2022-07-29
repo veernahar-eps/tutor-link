@@ -21,9 +21,10 @@ function handleUser(exists, user) {
             console.log('Click happened for: ' + e.target.id);
             const uni = document.getElementById('uni').value;
             const grad = document.getElementById('grad').value;
-            const bio = document.getElementById('bio').value;
+            const stuff = document.getElementById('stuff').value;
 
-            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio)
+            console.log([uni, grad, stuff])
+            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, stuff)
             window.location.href = "/html/dash.html"
         });
     }
@@ -31,18 +32,21 @@ function handleUser(exists, user) {
 
 function addNewUserToDatabase(userId, name, email, imageUrl, uni, grad, bio) {
     const database = firebase.database();
-    database.ref('users/tutors/' + userId).set({
-        displayName: name,
-        photoURL: imageUrl,
-        email: email,
-        uni: uni,
-        grad: grad,
-        bio: bio,
+    database.ref('users/' + userId).set({
+        userData: {
+            displayName: name,
+            photoURL: imageUrl,
+            email: email,
+            uni: uni,
+            grad: grad,
+            bio: bio,
+        },
+        accountType: 'tutor'
     });
 }
 
 async function checkUserOnDatabase(user) {
-    await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
+    await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         handleUser(snapshot.exists(), user);
     });
 }
