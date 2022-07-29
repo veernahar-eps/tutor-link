@@ -7,5 +7,5 @@ const config = {
     appId: "1:816550760594:web:4967a33f72e300540d964b",
     databaseURL: 'https://react-app-70676-default-rtdb.firebaseio.com/'
 };
-
+// s
 firebase.initializeApp(config);
