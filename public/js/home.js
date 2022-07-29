@@ -25,6 +25,7 @@ async function handleUserexists(user) {
             document.getElementById("profile_pic").src = photoURL
             document.getElementById("display_name").innerText = displayName
 
+            //hi
         }
     });
 }
