@@ -1,6 +1,15 @@
 const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 
+<<<<<<<<< Temporary merge branch 1
+if (data.user) {
+    handleUserExists(data.user)
+} else {
+    document.getElementById("profile_nav").style.display = 'none'
+}
+
+async function handleUserExists(user) {
+=========
 try {
     if (data.user) {
         handleUserexists(data.user)
@@ -13,6 +22,7 @@ try {
 
 
 async function handleUserexists(user) {
+>>>>>>>>> Temporary merge branch 2
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         if (!snapshot.exists()) {
             logOut();
@@ -29,8 +39,6 @@ async function handleUserexists(user) {
             document.getElementById("tutor_login").style.display = 'none'
             document.getElementById("profile_pic").src = photoURL
             document.getElementById("display_name").innerText = displayName
-
-            //hi
         }
     });
 }

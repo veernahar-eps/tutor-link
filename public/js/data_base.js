@@ -1,6 +1,11 @@
 async function checkUserOnDatabase(user) {
-    await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
+<<<<<<<<< Temporary merge branch 1
+    return await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         return snapshot.exists();
+=========
+    await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
+        
+>>>>>>>>> Temporary merge branch 2
     });
 }
 
