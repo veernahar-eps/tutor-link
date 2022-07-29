@@ -10,10 +10,14 @@ if (data && data.user) {
 async function checkUserOnDatabase(user) {
     console.log('here')
     
-
     await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
         if (data && !snapshot.exists()) {
-            logOut();
+            async function log(){await firebase.database().ref(`users/students/${user.uid}`).once("value").then(snapshot => {
+                if(!snapshot.exists){
+                    logOut();
+                }
+            });}
+            log();
         }
         if (data && snapshot.exists()) {
             const json = JSON.parse(data)
@@ -36,7 +40,13 @@ async function checkUserOnDatabase(user) {
 
     await firebase.database().ref(`users/students/${user.uid}`).once("value").then(snapshot => {
         if (data && !snapshot.exists()) {
-            logOut();
+            async function log(){await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
+                if(!snapshot.exists){
+                    logOut();
+                }
+            });}
+            log();
+            
         }
         if (data && snapshot.exists()) {
             const json = JSON.parse(data)

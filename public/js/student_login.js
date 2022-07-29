@@ -26,8 +26,6 @@ function handleUser(exists, user) {
 
             addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, stuff)
             window.location.href = "/html/dash.html"
-
-            // TODO add to local storage
         });
     }
 
