@@ -8,7 +8,7 @@ if (data && data.user) {
 }
 
 async function checkUserOnDatabase(user) {
-    console.log('here')
+    console.log('checking if user is on database')
     
     await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
         if (data && !snapshot.exists()) {
@@ -76,4 +76,5 @@ function logOut() {
         .catch(function (error) {
 
         });
+    console.log('logging out');
 }
