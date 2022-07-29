@@ -11,7 +11,6 @@ try {
     document.getElementById("profile_nav").style.display = 'none'
 }
 
-
 async function handleUserexists(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         if (!snapshot.exists()) {

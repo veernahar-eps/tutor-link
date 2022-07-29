@@ -31,21 +31,6 @@ function handleUser(exists, user) {
     }
 }
 
-// function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio) {
-//     const database = firebase.database();
-//     database.ref('users/' + userId).set({
-//         userData: {
-//             displayName: name,
-//             photoURL: imageUrl,
-//             email: email,
-//             school: school,
-//             grad: grad,
-//             bio: bio,
-//         },
-//         accountType: 'student'
-//     });
-// }
-
 async function checkUserOnDatabase(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         handleUser(snapshot.exists(), user);
