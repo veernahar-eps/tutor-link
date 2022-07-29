@@ -18,3 +18,10 @@ function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio, 
         accountType: accountType
     });
 }
+
+function addDataToAUser(userId, num) {
+    const database = firebase.database();
+    database.ref('users/' + userId).update({
+        "number": num
+    });
+}
