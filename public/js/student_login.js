@@ -16,23 +16,20 @@ function handleUser(exists, user) {
     if (exists) {
         window.location.href = "/html/dash.html"
     } else {
-        console.log('handling student login');
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
             console.log('Click happened for: ' + e.target.id);
             const uni = document.getElementById('school').value;
             const grad = document.getElementById('grad').value;
-            const stuff = document.getElementById('stuff').value;
+            const bio = document.getElementById('bio').value;
 
-            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, stuff)
+            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio)
             window.location.href = "/html/dash.html"
         });
-    }
-
-    
+    }   
 }
 
-function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, stuff) {
+function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio) {
     const database = firebase.database();
     database.ref('users/students/' + userId).set({
         displayName: name,
@@ -40,7 +37,7 @@ function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, stuff
         email: email,
         uni: school,
         grad: grad,
-        stuff: stuff
+        bio: bio
     });
 }
 

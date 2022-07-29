@@ -9,4 +9,3 @@ const config = {
 };
 
 firebase.initializeApp(config);
-console.log('initialized firebase app');

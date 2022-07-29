@@ -8,7 +8,6 @@ if (data && data.user) {
 }
 
 async function checkUserOnDatabase(user) {
-    console.log('checking if user is on database')
     
     await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
         if (data && !snapshot.exists()) {
@@ -19,6 +18,7 @@ async function checkUserOnDatabase(user) {
             });}
             log();
         }
+
         if (data && snapshot.exists()) {
             const json = JSON.parse(data)
         
@@ -46,7 +46,6 @@ async function checkUserOnDatabase(user) {
                 }
             });}
             log();
-            
         }
         if (data && snapshot.exists()) {
             const json = JSON.parse(data)
