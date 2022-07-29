@@ -22,10 +22,10 @@ function handleUser(exists, user) {
             console.log('Click happened for: ' + e.target.id);
             const uni = document.getElementById('school').value;
             const grad = document.getElementById('grad').value;
-            const stuff = document.getElementById('stuff').value;
+            const bio = document.getElementById('bio').value;
 
-            console.log([uni, grad, stuff])
-            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, stuff)
+            console.log([uni, grad, bio])
+            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio)
             window.location.href = "/html/dash.html"
         });
     }
