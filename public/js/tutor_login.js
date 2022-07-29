@@ -16,7 +16,7 @@ function handleUser(exists, user) {
     if (exists) {
         window.location.href = "/html/dash.html"
     } else {
-        console.log('handling student login');
+        console.log('handling tutor login');
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
             console.log('Click happened for: ' + e.target.id);
