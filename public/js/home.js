@@ -1,4 +1,4 @@
-const key = window.localStorage.key(0)
+const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 console.log(data)
 

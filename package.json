@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "firebase": "^9.9.0",
-    "firebaseui": "^6.0.1"
+    "firebaseui": "^6.0.1",
+    "jquery": "^3.6.0",
+    "semantic-ui-dropdown": "^2.4.1"
   }
 }

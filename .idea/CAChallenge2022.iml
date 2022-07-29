@@ -12,5 +12,6 @@
     <orderEntry type="library" name="firebase-ui-auth" level="application" />
     <orderEntry type="library" name="firebase" level="application" />
     <orderEntry type="library" name="material.blue-light_blue" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

@@ -16,10 +16,11 @@ function handleUser(exists, user) {
     if (exists) {
         window.location.href = "/html/dash.html"
     } else {
+        console.log('here!')
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
             console.log('Click happened for: ' + e.target.id);
-            const uni = document.getElementById('uni').value;
+            const uni = document.getElementById('school').value;
             const grad = document.getElementById('grad').value;
             const stuff = document.getElementById('stuff').value;
 
@@ -30,20 +31,20 @@ function handleUser(exists, user) {
     }
 }
 
-function addNewUserToDatabase(userId, name, email, imageUrl, uni, grad, stuff) {
+function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, stuff) {
     const database = firebase.database();
-    database.ref('users/tutors/' + userId).set({
+    database.ref('users/students/' + userId).set({
         displayName: name,
         photoURL: imageUrl,
         email: email,
-        uni: uni,
+        uni: school,
         grad: grad,
-        stuff: stuff,
+        stuff: stuff
     });
 }
 
 async function checkUserOnDatabase(user) {
-    await firebase.database().ref(`users/tutors/${user.uid}`).once("value").then(snapshot => {
+    await firebase.database().ref(`users/students/${user.uid}`).once("value").then(snapshot => {
         handleUser(snapshot.exists(), user);
     });
 }
