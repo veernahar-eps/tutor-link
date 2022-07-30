@@ -8,12 +8,6 @@ function logOut() {
         });
 }
 
-function printUsers() {
-    firebase.database().ref("users").orderByChild("accountType").equalTo("tutor").on("child_added", (snapshot) => {
-        console.log(snapshot.val()['userData']['displayName']);
-    });
-}
-
 const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 
