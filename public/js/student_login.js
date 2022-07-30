@@ -23,9 +23,12 @@ function handleUser(exists, user) {
             const uni = document.getElementById('school').value;
             const grad = document.getElementById('grad').value;
             const bio = document.getElementById('bio').value;
+            const phone = document.getElementById('phone').value;
+            const state = document.getElementById('state').value;
+            const country = document.getElementById('country').value;
 
             console.log([uni, grad, bio])
-            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio, 'student')
+            addNewUserToDatabase(user.uid, user.displayName, user.email, user.photoURL, uni, grad, bio, phone, state, country, 'student')
             window.location.href = "/html/dash.html"
         });
     }

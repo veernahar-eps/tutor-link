@@ -4,7 +4,7 @@ async function checkUserOnDatabase(user) {
     });
 }
 
-function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio, accountType) {
+function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio, phone, state, country, accountType) {
     const database = firebase.database();
     database.ref('users/' + userId).set({
         userData: {
@@ -14,6 +14,9 @@ function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio, 
             school: school,
             grad: grad,
             bio: bio,
+            phone: phone,
+            state: state,
+            country: country,
         },
         accountType: accountType
     });
