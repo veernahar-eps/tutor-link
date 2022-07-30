@@ -11,6 +11,7 @@ function logOut() {
 firebase.auth().onStateChanged(function (user) {
     if (user) {
         console.log(user.uid);
+        // return user data
     } else {
         console.log("user signed out");
         // redirect to homepage?
