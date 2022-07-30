@@ -8,10 +8,11 @@ function logOut() {
         });
 }
 
-// TODO change later to get unique users
-function printUsers() {
-    firebase.database().ref("users").orderByChild("accountType").equalTo("tutor").on("child_added", (snapshot) => {
-        console.log(snapshot.val()['userData']['displayName']);
-        console.log(snapshot.val()['userData']['photoURL']);
-    });
-}
+firebase.auth().onStateChanged(function (user) {
+    if (user) {
+        console.log(user.uid);
+    } else {
+        console.log("user signed out");
+        // redirect to homepage?
+    }
+})
