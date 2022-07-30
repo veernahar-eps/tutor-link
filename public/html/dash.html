@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-12">
                         <label class="labels" for="bio">Bio</label>
-                        <textarea id="bio" style="height: 200px" type="text" class="form-control" placeholder="Bio"></textarea>
+                        <textarea id="bio" style="height: 200px; margin-bottom: 20px" type="text" class="form-control" placeholder="Bio"></textarea>
                     </div>
 
                 </div>
@@ -70,24 +70,22 @@
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                            <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                            <div class="col-md-6"><label class="labels">Name</label><input id="first_name" type="text" class="form-control" placeholder="first name" value=""></div>
+                            <div class="col-md-6"><label class="labels">Last Name</label><input id="last_name" type="text" class="form-control" value="" placeholder="last name"></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                            <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                            <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                            <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                            <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input id="phone_number" type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input id="email" type="text" class="form-control" placeholder="enter email id" value=""></div>
+                            <div class="col-md-12"><label class="labels">University/School</label><input id="uni" type="text" class="form-control" placeholder="University/School" value=""></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                            <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                            <div class="col-md-6"><label class="labels">Country</label><input id="country" type="text" class="form-control" placeholder="country" value=""></div>
+                            <div class="col-md-6"><label class="labels">State/Region</label><input id="state" type="text" class="form-control" value="" placeholder="state"></div>
                         </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                            <button onclick="logOut()" class="btn btn-primary profile-button" type="button">Log Out</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -100,18 +98,6 @@
             </div>
         </div>
     </div>
-</div>
-
-        <button onclick="logOut()"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
-            log out
-        </button>
-        <button onclick="printUsers()"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
-            print
-        </button>
-    </div>
-
 </div>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="../js/data_base.js"></script>
