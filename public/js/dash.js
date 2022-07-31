@@ -51,24 +51,20 @@ function saveNewData() {
     const phone = valueOf("phone_number")
     const state = valueOf("state")
 
-    if (fieldsFull()) {
-        firebase.database().ref('users/' + current_uid).set({
-            userData: {
-                firstName: first_name,
-                lastName: last_name,
-                email: email,
-                photoURL: json['photoURL'],
-                school: school,
-                grad: grad,
-                bio: bio,
-                phone: phone,
-                state: state,
-            },
-            accountType: 'tutor'
-        });
-    } else {
-        alert("Please do not leave any of the given fields.")
-    }
+    firebase.database().ref('users/' + current_uid).set({
+        userData: {
+            firstName: first_name,
+            lastName: last_name,
+            email: email,
+            photoURL: json['photoURL'],
+            school: school,
+            grad: grad,
+            bio: bio,
+            phone: phone,
+            state: state,
+        },
+        accountType: 'tutor'
+    });
 }
 
 function valueOf(elementID) {
@@ -83,8 +79,3 @@ function valueOf(elementID) {
     }
     
 }
-
-function fieldsFull() {
-    return true
-}
-
