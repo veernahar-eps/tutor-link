@@ -3,10 +3,10 @@ const data = window.localStorage.getItem(key)
 
 const json = JSON.parse(data)
 
-const curUID = json['uid']
-firebase.database().ref('users/' + curUID).once('value', (snapshot) => {
-    const firstName = snapshot.val()['userData']['firstName']
-    const lastName = snapshot.val()['userData']['lastName']
+const current_uid = json['uid']
+firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
+    const first_name = snapshot.val()['userData']['firstName']
+    const last_name = snapshot.val()['userData']['lastName']
     const email = snapshot.val()['userData']['email']
     const school = snapshot.val()['userData']['school']
     const bio = snapshot.val()['userData']['bio']
@@ -15,10 +15,10 @@ firebase.database().ref('users/' + curUID).once('value', (snapshot) => {
     const grad = snapshot.val()['userData']['grad']
 
     document.getElementById("profile_pic").src = json['photoURL']
-    document.getElementById("display_name").innerText = firstName + ' '+ lastName
+    document.getElementById("display_name").innerText = first_name + ' '+ last_name
     document.getElementById("display_email").innerText = email
-    document.getElementById("first_name").placeholder = firstName
-    document.getElementById("last_name").placeholder = lastName
+    document.getElementById("first_name").placeholder = first_name
+    document.getElementById("last_name").placeholder = last_name
     document.getElementById("phone_number").placeholder = phone
     document.getElementById("email").placeholder = email
     document.getElementById("state").placeholder = state
@@ -29,7 +29,7 @@ firebase.database().ref('users/' + curUID).once('value', (snapshot) => {
 
 
 
-let inputFields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", ["state"]]
+let input_fields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", ["state"]]
 
 function logOut() {
     firebase.auth().signOut()
@@ -42,8 +42,8 @@ function logOut() {
 }
 
 function saveNewData() {
-    const firstName = valueOf("first_name")
-    const lastName = valueOf("last_name")
+    const first_name = valueOf("first_name")
+    const last_name = valueOf("last_name")
     const email = valueOf("email")
     const school = valueOf("school")
     const grad = valueOf("grad")
@@ -52,10 +52,10 @@ function saveNewData() {
     const state = valueOf("state")
 
     if (fieldsFull()) {
-        firebase.database().ref('users/' + curUID).set({
+        firebase.database().ref('users/' + current_uid).set({
             userData: {
-                firstName: firstName,
-                lastName: lastName,
+                firstName: first_name,
+                lastName: last_name,
                 email: email,
                 photoURL: json['photoURL'],
                 school: school,
@@ -73,13 +73,13 @@ function saveNewData() {
 
 function valueOf(elementID) {
     try {
-        if (document.getElementById(elementID).value.length == 0) {
+        if (document.getElementById(elementID).value.length === 0) {
             return document.getElementById(elementID).placeholder
         } else {
             return document.getElementById(elementID).value
         }
     } catch (error) {
-        alert('error')
+        alert('One or more fields were empty!')
     }
     
 }
@@ -87,3 +87,4 @@ function valueOf(elementID) {
 function fieldsFull() {
     return true
 }
+
