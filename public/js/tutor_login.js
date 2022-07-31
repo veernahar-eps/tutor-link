@@ -43,6 +43,8 @@ function handleUser(exists, user) {
             const firstName = document.getElementById('first_name').value;
             const lastName = document.getElementById('last_name').value
 
+            // check if empty when button press called
+
             addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
             window.location.href = "/html/dash.html"
         });
