@@ -57,7 +57,7 @@ function saveNewData() {
             accountType: accountType
         });
     } else {
-        alert("Please do not leave any of the given fields")
+        alert("Please do not leave any of the given fields.")
     }
 }
 
