@@ -29,7 +29,7 @@ firebase.database().ref('users/' + curUID).once('value', (snapshot) => {
 
 
 
-let inputFields = ["first_name", "last_name", "phone_number", "email", "country", "state", "school", "bio"]
+let inputFields = ["first_name", "last_name", "phone_number", "email", "state", "school", "bio"]
 
 function logOut() {
     firebase.auth().signOut()
