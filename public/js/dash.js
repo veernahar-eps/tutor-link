@@ -42,30 +42,48 @@ function logOut() {
 }
 
 function saveNewData() {
+    const firstName = valueOf("first_name")
+    const lastName = valueOf("last_name")
+    const email = valueOf("email")
+    const school = valueOf("school")
+    const grad = valueOf("grad")
+    const bio = valueOf("bio")
+    const phone = valueOf("phone_number")
+    const state = valueOf("state")
+
     if (fieldsFull()) {
-        firebase.database().ref('users/' + userId).set({
+        firebase.database().ref('users/' + curUID).set({
             userData: {
-                firstName: document.getElementById("first_name").value,
-                lastName: document.getElementById("last_name").value,
-                email: document.getElementById("email").value,
-                school: document.getElementById("school").value,
-                grad: document.getElementById("grad").value,
-                bio: document.getElementById("bio").value,
-                phone: document.getElementById("phone_number").value,
-                state: document.getElementById("state").value,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                photoURL: json['photoURL'],
+                school: school,
+                grad: grad,
+                bio: bio,
+                phone: phone,
+                state: state,
             },
-            accountType: accountType
+            accountType: 'tutor'
         });
     } else {
         alert("Please do not leave any of the given fields.")
     }
 }
 
-function fieldsFull() {
-    inputFields.forEach((elementID, curIndex) => {
-        if (document.getElementById(elementID).value === null) {
-            console.log("here")
+function valueOf(elementID) {
+    try {
+        if (document.getElementById(elementID).value.length == 0) {
+            return document.getElementById(elementID).placeholder
+        } else {
+            return document.getElementById(elementID).value
         }
-    });
-    return true;
+    } catch (error) {
+        alert('error')
+    }
+    
+}
+
+function fieldsFull() {
+    return true
 }
