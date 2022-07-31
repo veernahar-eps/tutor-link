@@ -29,7 +29,7 @@ firebase.database().ref('users/' + curUID).once('value', (snapshot) => {
 
 
 
-let inputFields = ["first_name", "last_name", "phone_number", "email", "state", "school", "bio"]
+let inputFields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", ["state"]]
 
 function logOut() {
     firebase.auth().signOut()
@@ -63,7 +63,7 @@ function saveNewData() {
 
 function fieldsFull() {
     inputFields.forEach((elementID, curIndex) => {
-        if (document.getElementById("elementID")[0].placeholder = null) {
+        if (document.getElementById(elementID).placeholder !== null) {
             return false;
         }
     });
