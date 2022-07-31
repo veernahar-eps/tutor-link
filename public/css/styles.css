@@ -96,6 +96,9 @@
     border-radius: 50%;
 }
 
+.form-override {
+    appearance: auto !important;
+}
 
 body {
     margin: 0;
@@ -106,7 +109,7 @@ a img {
     border: 0px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 

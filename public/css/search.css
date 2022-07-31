@@ -1,13 +1,13 @@
 body{
     background:#dcdcdc;
-    margin-top:20px;}
+}
 
 .widget-26 {
     color: #3c4142;
     font-weight: 400;
 }
 
-.widget-26 tr:first-child td {
+.widget-26 tr:last-child td {
     border: 0;
 }
 
@@ -204,11 +204,15 @@ body{
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting select {
-    color: #68CBD7;
+    color: black;
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting select option {
     color: #3c4142;
+}
+
+option{
+    color: black;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
