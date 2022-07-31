@@ -4,19 +4,20 @@ async function checkUserOnDatabase(user) {
     });
 }
 
-function addNewUserToDatabase(userId, name, email, imageUrl, school, grad, bio, phone, state, country, accountType) {
+function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, uni, grad, bio, phone, state, accountType) {
     const database = firebase.database();
     database.ref('users/' + userId).set({
         userData: {
-            displayName: name,
-            photoURL: imageUrl,
+            firstName: firstName,
+            lastName: lastName,
             email: email,
+            photoURL: photoURL,
+            uni: uni,
             school: school,
             grad: grad,
             bio: bio,
             phone: phone,
             state: state,
-            country: country,
         },
         accountType: accountType
     });
