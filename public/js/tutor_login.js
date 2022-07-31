@@ -2,15 +2,19 @@ document.getElementById("sign_up").style.display = 'none'
 
 let provider = new firebase.auth.GoogleAuthProvider();
 
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        console.log(user.uid);
 
-        checkUserOnDatabase(user);
-    } else {
-        firebase.auth().signInWithPopup(provider);
-    }
-});
+function signIn() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log(user.uid);
+            document.getElementById("signed_out").style.display = 'none'
+
+            checkUserOnDatabase(user);
+        } else {
+            firebase.auth().signInWithPopup(provider);
+        }
+    });
+}
 
 function handleUser(exists, user) {
     if (exists) {
