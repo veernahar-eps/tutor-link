@@ -63,8 +63,8 @@ function saveNewData() {
 
 function fieldsFull() {
     inputFields.forEach((elementID, curIndex) => {
-        if (document.getElementById(elementID).placeholder !== null) {
-            return false;
+        if (document.getElementById(elementID).value === null) {
+            console.log("here")
         }
     });
     return true;
