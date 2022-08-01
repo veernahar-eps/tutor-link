@@ -8,7 +8,7 @@ function printUsers() {
         <tr>\
         <td>\
             <div class="widget-26-job-emp-img">\
-                <img src="' + snapshot.val()['userData']['photoURL'] + '"\
+                <img referrerpolicy="no-referrer" src="' + snapshot.val()['userData']['photoURL'] + '"\
                      alt="Company"/>\
             </div>\
         </td>\
