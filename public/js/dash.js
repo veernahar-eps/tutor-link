@@ -7,6 +7,7 @@ const current_uid = json['uid']
 firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     const first_name = snapshot.val()['userData']['firstName']
     const last_name = snapshot.val()['userData']['lastName']
+    const photo_url = snapshot.val()['userData']['photoURL']
     const email = snapshot.val()['userData']['email']
     const school = snapshot.val()['userData']['school']
     const bio = snapshot.val()['userData']['bio']
@@ -14,7 +15,7 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     const state = snapshot.val()['userData']['state']
     const grad = snapshot.val()['userData']['grad']
 
-    document.getElementById("profile_pic").src = json['photoURL']
+    document.getElementById("profile_pic").src = photo_url
     document.getElementById("display_name").innerText = first_name + ' '+ last_name
     document.getElementById("display_email").innerText = email
     document.getElementById("first_name").placeholder = first_name
@@ -26,8 +27,6 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     document.getElementById("bio").placeholder = bio
     document.getElementById("grad").placeholder = grad
 });
-
-
 
 let input_fields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", ["state"]]
 
