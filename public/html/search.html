@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/search.css">
@@ -122,7 +124,49 @@
                                         <div class="result-body">
                                             <div class="table-responsive">
                                                 <table class="table widget-26">
-                                                    <tbody id = "tutor-list">
+                                                    <tbody id="tutor-list">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="widget-26-job-emp-img">
+                                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                                                     alt="Company"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-title">
+                                                                <a href="#">Marketing &amp; Communication Supervisor</a>
+                                                                <p class="m-0"><a href="#" class="employer-name">AxiomUI
+                                                                    Llc.</a> <span
+                                                                        class="text-muted time">2 days ago</span></p>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="widget-26-job-info">
+                                                                <p class="type m-0">Part-Time</p>
+                                                                <p class="text-muted m-0">in <span class="location">New York, US</span>
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-salary">$ 60/hr</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-category bg-soft-warning">
+                                                                <i class="indicator bg-warning"></i>
+                                                                <span>Subject</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-see-profile">
+                                                                <button type="button" class="form-control"
+                                                                        data-toggle="modal"
+                                                                        data-target="#exampleModalCenter">
+                                                                    See Profile
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -137,6 +181,49 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-7">
+                    <div class="card p-3 py-4">
+                        <div class="text-center">
+                            <img referrerpolicy="no-referrer" src="https://i.imgur.com/bDLhJiP.jpg" width="100"
+                                 class="rounded-circle">
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
+                            <h5 class="mt-2 mb-0" style="color: black">Alexender Schidmt</h5>
+                            <span style="color: darkgrey">UI/UX Designer</span>
+
+                            <div class="px-4 mt-1">
+                                <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+
+                            <ul class="social-list">
+                                <li><i class="fa fa-facebook"></i></li>
+                                <li><i class="fa fa-dribbble"></i></li>
+                                <li><i class="fa fa-instagram"></i></li>
+                                <li><i class="fa fa-linkedin"></i></li>
+                                <li><i class="fa fa-google"></i></li>
+                            </ul>
+
+                            <div class="buttons">
+                                <button class="btn btn-primary px-4 ms-3" data-dismiss="modal">Contact</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="../js/data_base.js"></script>
 <script src="../js/search.js"></script>

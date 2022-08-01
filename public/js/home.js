@@ -1,9 +1,13 @@
 const key = window.localStorage.key(1)
 const data = window.localStorage.getItem(key)
 
+const json = JSON.parse(data)
+console.log(json)
+
 try {
-    if (data.user) {
-        handleUserexists(data.user)
+    if (json) {
+        handleUserexists(json)
+        console.log('exists')
     } else {
         document.getElementById("profile_nav").style.display = 'none'
     }
@@ -16,13 +20,11 @@ async function handleUserexists(user) {
         if (!snapshot.exists()) {
             logOut();
         } else {
-            const json = JSON.parse(data)
-
             const displayName = json['displayName']
             const photoURL = json['photoURL']
 
             console.log(displayName)
-            console.log(photoURL)  
+            console.log(photoURL)
 
             document.getElementById("student_login").style.display = 'none'
             document.getElementById("tutor_login").style.display = 'none'

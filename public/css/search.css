@@ -1,5 +1,5 @@
-body{
-    background:#dcdcdc;
+body {
+    background: #dcdcdc;
 }
 
 .widget-26 {
@@ -18,7 +18,8 @@ body{
 }
 
 .widget-26 .widget-26-job-title {
-    min-width: 200px;
+    min-width: 50px;
+    max-width: 250px;
 }
 
 .widget-26 .widget-26-job-title a {
@@ -104,18 +105,23 @@ body{
 .widget-26 .widget-26-job-starred svg.starred {
     fill: #fd8b2c;
 }
+
 .bg-soft-base {
     background-color: #e1f5f7;
 }
+
 .bg-soft-warning {
     background-color: #fff4e1;
 }
+
 .bg-soft-success {
     background-color: #d1f6f2;
 }
+
 .bg-soft-danger {
     background-color: #fedce0;
 }
+
 .bg-soft-info {
     background-color: #d7efff;
 }
@@ -211,7 +217,7 @@ body{
     color: #3c4142;
 }
 
-option{
+option {
     color: black;
 }
 
@@ -219,6 +225,7 @@ option{
     .search-body .search-filters {
         display: flex;
     }
+
     .search-body .search-filters .filter-list {
         margin-right: 1rem;
     }
@@ -228,7 +235,7 @@ option{
     margin-bottom: 1.875rem;
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
     .col-lg-2 {
         flex: 0 0 16.66667%;
         max-width: 16.66667%;
@@ -238,6 +245,7 @@ option{
 .card-margin {
     margin-bottom: 1.875rem;
 }
+
 .card {
     border: 0;
     box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
@@ -245,6 +253,7 @@ option{
     -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
     -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
 }
+
 .card {
     position: relative;
     display: flex;
@@ -258,11 +267,78 @@ option{
 }
 
 
+.card {
+    border: none;
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card:before {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    transform: scaleY(1);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:after {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:hover::after {
+    transform: scaleY(1);
+}
 
 
+.fonts {
+    font-size: 11px;
+    color: black;
+}
+
+.social-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+}
+
+.social-list li {
+    padding: 10px;
+    color: darkgrey !important;
+    font-size: 19px;
+}
 
 
+.buttons button {
+    border: 1px solid #00a2ff !important;
+    height: 40px;
+    background-color: white;
+    color: black;
 
+}
+
+.buttons button:hover {
+    border: 1px solid #00a2ff !important;
+    color: #fff;
+    height: 40px;
+    background-color: #00a2ff;
+}
 
 
 
