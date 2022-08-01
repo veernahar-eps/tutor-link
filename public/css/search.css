@@ -333,15 +333,5 @@ option {
 
 }
 
-.buttons button:hover {
-    border: 1px solid #00a2ff !important;
-    color: #fff;
-    height: 40px;
-    background-color: #00a2ff;
-}
-
-
-
-
 
 
