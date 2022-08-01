@@ -1,8 +1,8 @@
 // TODO change later to get unique users
+printUsers()
+
 function printUsers() {
-    console.log('hello')
     firebase.database().ref("users").orderByChild("accountType").equalTo("tutor").on('child_added', (snapshot) => {
-        console.log(snapshot.val()['userData']['photoURL']);
         var newElement = document.createElement("tr");
         newElement.innerHTML = '\
         <tr>\
@@ -40,10 +40,3 @@ function printUsers() {
         document.getElementById("tutor-list").appendChild(newElement);
     });
 }
-
-// function printUsers() {
-//     firebase.database().ref("users").orderByChild("accountType").equalTo("tutor").on("child_added", (snapshot) => {
-//         console.log(snapshot.val()['userData']['displayName']);
-//         console.log(snapshot.val()['userData']['photoURL']);
-//     });
-// } 
