@@ -7,17 +7,17 @@ function printUsers(sortingType) {
     switch(sortingType) {
         case 'R':
             firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
-                injectTutorData(snapshot)
+                injectTutorData(snapshot, 'CHILD')
             });
         case 'A':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                injectTutorData(snapshot)
+                injectTutorData(snapshot, 'TOP')
             });
             break
     }
 }
 
-function injectTutorData(snapshot) {
+function injectTutorData(snapshot, location) {
     var newElement = document.createElement("tr");
     newElement.innerHTML = '\
         <tr>\
@@ -51,5 +51,10 @@ function injectTutorData(snapshot) {
         </td>\
     </tr>\
     ';
-    document.getElementById("tutor-list").appendChild(newElement);
+    if (location !== 'TOP') {
+        document.getElementById("tutor-list").appendChild(newElement);
+    } else {
+        document.getElementById("tutor-list").innerHTML += newElement
+    }
+    
 }
