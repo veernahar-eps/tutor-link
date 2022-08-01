@@ -2,7 +2,7 @@
 printUsers()
 
 function printUsers() {
-    firebase.database().ref("users/accountData").orderByChild("accountType").equalTo("tutor").on('child_added', (snapshot) => {
+    firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
         var newElement = document.createElement("tr");
         newElement.innerHTML = '\
         <tr>\
