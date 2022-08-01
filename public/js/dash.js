@@ -62,7 +62,10 @@ function saveNewData() {
             phone: phone,
             state: state,
         },
-        accountType: 'tutor'
+        accountData: {
+            accountType: 'tutor'
+        },
+        
     });
 }
 

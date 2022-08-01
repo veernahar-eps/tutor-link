@@ -18,7 +18,9 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
             phone: phone,
             state: state,
         },
-        accountType: accountType
+        accountData:  {
+            accountType: accountType
+        },
     });
 }
 
