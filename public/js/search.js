@@ -16,12 +16,11 @@ function printUsers() {
             <div class="widget-26-job-title">\
                 <a href="#">' + snapshot.val()['userData']['firstName'] + ' ' + snapshot.val()['userData']['lastName'] + '</a>\
                 <p class="m-0"><a href="#" class="employer-name">AxiomUI Llc.</a>\
-                <span class="text-muted time">2 days ago</span></p>\
             </div>\
         </td>\
         <td>\
             <div class="widget-26-job-info">\
-                <p class="type m-0">Part-Time</p>\
+                <p class="type m-0">' + snapshot.val()['userData']['school'] + '</p>\
                 <p class="text-muted m-0">in <span class="location">New York, US</span>\
                 </p>\
             </div>\
