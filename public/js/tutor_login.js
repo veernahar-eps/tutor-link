@@ -26,7 +26,6 @@ function handleUser(exists, user) {
 
         let displayNameArr = user.displayName.split(' ')
 
-
         document.getElementById('first_name').placeholder = displayNameArr[0]
         document.getElementById('last_name').placeholder = displayNameArr[1]
         document.getElementById('email').placeholder = user.email 
