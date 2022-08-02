@@ -3,7 +3,7 @@ printUsers(0)
 let arrSelected = [];
 const sortType = document.getElementById("sortingType")
 sortType.onchange = (event) => {
-    printUsers(sortType.selectedIndex)
+    search()
 }
 
 $('#multiple-select').on('change', function () {
@@ -17,16 +17,22 @@ $('#multiple-select').on('change', function () {
     console.log(arrSelected)
 });
 
-function search(){
-    printUsers(document.getElementById("sortingType").selectedIndex)
+function search() {
+    printUsers(document.getElementById("sortingType").selectedIndex).then(() => check())
 }
 
-function printUsers(sortingType) {
+function check() {
+    if (document.getElementById("tutor-list").innerHTML === '') {
+        document.getElementById("tutor-list").innerHTML = 'No results'
+    }
+}
+
+async function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = ''
     switch (sortingType) {
         // price = low to high
         case 0:
-            firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
+            return await firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 const tutor = snapshot.val()['accountData']['accountType'] === 'tutor';
                 if (tutor && arrSelected.length === 0) {
                     injectTutorData(snapshot)
@@ -37,10 +43,9 @@ function printUsers(sortingType) {
                     }
                 }
             });
-            break
         // price = high to low
         case 1:
-            firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
+            return await firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 const tutor = snapshot.val()['accountData']['accountType'] === 'tutor';
                 if (tutor && arrSelected.length === 0) {
                     injectTutorData(snapshot, false)
@@ -51,11 +56,8 @@ function printUsers(sortingType) {
                     }
                 }
             });
-            break
     }
-    if(document.getElementById("tutor-list").innerHTML === ''){
-        document.getElementById("tutor-list").innerHTML = 'No results'
-    }
+
 }
 
 function injectTutorData(snapshot, end = true) {
