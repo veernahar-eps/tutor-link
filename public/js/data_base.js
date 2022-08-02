@@ -46,7 +46,7 @@ function sendOrder(tutorUserId, studentUserId) {
 
 function addDataToAUser(userId, num) {
     const database = firebase.database();
-    database.ref('users/' + userId).update({
+    database.ref('users/' + userId).push({
         "number": num
     });
 }
