@@ -4,20 +4,31 @@ printUsers()
 
 
 function printUsers(sortingType) {
+    document.getElementById("tutor-list").innerHTML = '';
     switch(sortingType) {
         case 'R':
             firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
-                injectTutorData(snapshot, 'CHILD')
+                injectTutorData(snapshot)
+                console.log(snapshot.val() + '\n')
+                var objAssetSelection = $.parseJSON(snapshot.val());
+                objAssetSelection.info.reverse();
+                console.log(objAssetSelection);
             });
         case 'A':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                injectTutorData(snapshot, 'TOP')
+                injectTutorData(snapshot)
             });
+            break
+        case 'D':
+            firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
+                injectTutorData(snapshot)
+            });
+
             break
     }
 }
 
-function injectTutorData(snapshot, location) {
+function injectTutorData(snapshot) {
     var newElement = document.createElement("tr");
     newElement.innerHTML = '\
         <tr>\
@@ -51,10 +62,5 @@ function injectTutorData(snapshot, location) {
         </td>\
     </tr>\
     ';
-    if (location !== 'TOP') {
-        document.getElementById("tutor-list").appendChild(newElement);
-    } else {
-        document.getElementById("tutor-list").innerHTML += newElement
-    }
-    
+    document.getElementById("tutor-list").appendChild(newElement);
 }
