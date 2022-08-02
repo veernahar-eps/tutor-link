@@ -1,6 +1,14 @@
 body {
     background: #dcdcdc;
 }
+.dropdown {
+    z-index: 9999;
+}
+
+ul.dropdown-menu.inner{
+    max-height: 380px !important;
+    overflow-y: auto;
+}
 
 .widget-26 {
     color: #3c4142;

@@ -1,40 +1,60 @@
 // TODO change later to get unique users
 printUsers(0)
-
+let arrSelected = [];
 const sortType = document.getElementById("sortingType")
 sortType.onchange = (event) => {
     printUsers(sortType.selectedIndex)
 }
 
-function search() {
+$('#multiple-select').on('change', function () {
+    const selected = $(this).find("option:selected");
+    arrSelected = [];
+
+    selected.each((idx, val) => {
+        arrSelected.push(val.value);
+    });
+
+    console.log(arrSelected)
+});
+
+function search(){
     printUsers(document.getElementById("sortingType").selectedIndex)
 }
 
 function printUsers(sortingType) {
-    document.getElementById("tutor-list").innerHTML = '';
-
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    let search = urlParams.get("search")
-    console.log(search)
-
+    document.getElementById("tutor-list").innerHTML = ''
     switch (sortingType) {
         // price = low to high
         case 0:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                if ((search === null || snapshot.val()['accountData']['subjects'].includes(search)) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                const tutor = snapshot.val()['accountData']['accountType'] === 'tutor';
+                if (tutor && arrSelected.length === 0) {
                     injectTutorData(snapshot)
+                }
+                for (let i = 0; i < arrSelected.length; i++) {
+                    if (tutor && snapshot.val()['accountData']['subjects'].includes(arrSelected[i])) {
+                        injectTutorData(snapshot)
+                    }
                 }
             });
             break
         // price = high to low
         case 1:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                if ((search === null || snapshot.val()['accountData']['subjects'].includes(search)) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                const tutor = snapshot.val()['accountData']['accountType'] === 'tutor';
+                if (tutor && arrSelected.length === 0) {
                     injectTutorData(snapshot, false)
+                }
+                for (let i = 0; i < arrSelected.length; i++) {
+                    if (tutor && snapshot.val()['accountData']['subjects'].includes(arrSelected[i])) {
+                        injectTutorData(snapshot, false)
+                    }
                 }
             });
             break
+    }
+    if(document.getElementById("tutor-list").innerHTML === ''){
+        document.getElementById("tutor-list").innerHTML = 'No results'
     }
 }
 

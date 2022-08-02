@@ -5,6 +5,7 @@ let fieldIDs = ["uni", "grad", "bio", "phone_number", "state"]
 
 console.log(document.getElementById("email").value.length)
 console.log(document.getElementById("email").placeholder.length)
+
 function signIn() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -20,18 +21,18 @@ function signIn() {
 
 function handleUser(exists, user) {
     if (exists) {
-        window.location.href = "/html/dash.html"
+        window.location.href = "/html/tutor_dash.html"
     } else {
         document.getElementById('display_name').innerText = user.displayName;
         document.getElementById('profile_pic').src = user.photoURL;
         document.getElementById('display_email').innerText = user.email;
-    
+
         let displayNameArr = user.displayName.split(' ')
-    
+
         document.getElementById('first_name').placeholder = displayNameArr[0]
         document.getElementById('last_name').placeholder = displayNameArr[1]
-        document.getElementById('email').placeholder = user.email 
-    
+        document.getElementById('email').placeholder = user.email
+
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
             console.log('Click happened for: ' + e.target.id);
@@ -44,10 +45,10 @@ function handleUser(exists, user) {
                 const email = valueOf("email")
                 const firstName = valueOf("first_name")
                 const lastName = valueOf("last_name")
-    
+
                 addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
-                window.location.href = "/html/dash.html"
-            }   
+                window.location.href = "/html/tutor_dash.html"
+            }
         });
     }
 }

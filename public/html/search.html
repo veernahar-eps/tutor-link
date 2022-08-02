@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css"/>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-
 
 
     <link rel="stylesheet" href="../css/styles.css">
@@ -52,71 +52,62 @@
     </div>
 
     <div class="android-content mdl-layout__content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 card-margin">
-                    <div class="card search-form">
-                        <div class="card-body p-0">
-                            <form id="search-form">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="row no-gutters">
-                                                <select style="color: black; max-height: 50%" class="selectpicker form-control" multiple="multiple" data-live-search="true">
-                                                    <option>AP Research</option>
-                                                    <option>AP Seminar</option>
-                                                    <option>AP Art and Design Program</option>
-                                                    <option>AP Art History</option>
-                                                    <option>AP Music Theory</option>
-                                                    <option>AP English Language and Composition</option>
-                                                    <option>AP English Literature and Composition</option>
-                                                    <option>AP Comparative Government and Politics</option>
-                                                    <option>AP European History</option>
-                                                    <option>AP Human Geography</option>
-                                                    <option>AP Macroeconomics</option>
-                                                    <option>AP Microeconomics</option>
-                                                    <option>AP Psychology</option>
-                                                    <option>AP United States Government and Politics</option>
-                                                    <option>AP United States History</option>
-                                                    <option>AP World History: Modern</option>
-                                                    <option>AP Calculus AB</option>
-                                                    <option>AP Calculus BC</option>
-                                                    <option>AP Computer Science A</option>
-                                                    <option>AP Computer Science Principles</option>
-                                                    <option>AP Statistics</option>
-                                                    <option>AP Biology</option>
-                                                    <option>AP Chemistry</option>
-                                                    <option>AP Environmental Science</option>
-                                                    <option>AP Physics 1: Algebra-Based</option>
-                                                    <option>AP Physics 2: Algebra-Based</option>
-                                                    <option>AP Physics C: Electricity and Magnetism</option>
-                                                    <option>AP Physics C: Mechanics</option>
-                                                    <option>AP Chinese Language and Culture</option>
-                                                    <option>AP French Language and Culture</option>
-                                                    <option>AP German Language and Culture</option>
-                                                    <option>AP Italian Language and Culture</option>
-                                                    <option>AP Japanese Language and Culture</option>
-                                                    <option>AP Latin</option>
-                                                    <option>AP Spanish Language and Culture</option>
-                                                    <option>AP Spanish Literature and Culture</option>
-                                                </select>
-                                            <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-                                                <button type="submit" class="btn btn-base" onclick="search()">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                         viewBox="0 0 24 24" fill="none" stroke="black"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-search">
-                                                        <circle cx="11" cy="11" r="8"></circle>
-                                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <div class="container rounded mt-5 mb-5">
+            <div class="row mb-5">
+                <div class="col-md-11">
+                    <select id="multiple-select" style="color: black; max-height: 50%; margin: 0; padding: 0"
+                            class="selectpicker form-control" multiple="multiple"
+                            data-live-search="true">
+                        <option>AP Research</option>
+                        <option>AP Seminar</option>
+                        <option>AP Art and Design Program</option>
+                        <option>AP Art History</option>
+                        <option>AP Music Theory</option>
+                        <option>AP English Language and Composition</option>
+                        <option>AP English Literature and Composition</option>
+                        <option>AP Comparative Government and Politics</option>
+                        <option>AP European History</option>
+                        <option>AP Human Geography</option>
+                        <option>AP Macroeconomics</option>
+                        <option>AP Microeconomics</option>
+                        <option>AP Psychology</option>
+                        <option>AP United States Government and Politics</option>
+                        <option>AP United States History</option>
+                        <option>AP World History: Modern</option>
+                        <option>AP Calculus AB</option>
+                        <option>AP Calculus BC</option>
+                        <option>AP Computer Science A</option>
+                        <option>AP Computer Science Principles</option>
+                        <option>AP Statistics</option>
+                        <option>AP Biology</option>
+                        <option>AP Chemistry</option>
+                        <option>AP Environmental Science</option>
+                        <option>AP Physics 1: Algebra-Based</option>
+                        <option>AP Physics 2: Algebra-Based</option>
+                        <option>AP Physics C: Electricity and Magnetism</option>
+                        <option>AP Physics C: Mechanics</option>
+                        <option>AP Chinese Language and Culture</option>
+                        <option>AP French Language and Culture</option>
+                        <option>AP German Language and Culture</option>
+                        <option>AP Italian Language and Culture</option>
+                        <option>AP Japanese Language and Culture</option>
+                        <option>AP Latin</option>
+                        <option>AP Spanish Language and Culture</option>
+                        <option>AP Spanish Literature and Culture</option>
+                    </select>
                 </div>
+                <div class="col-md-1 p-0">
+                    <button type="button" class="btn btn-base" onclick="search()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24" fill="none" stroke="black"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-search">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
             <div class="row">
                 <div class="col-12">
@@ -140,49 +131,13 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-1">
-                                                    <div class="records"><b>200</b> results</div>
-                                                </div>
-
                                             </div>
                                         </div>
                                         <div class="result-body">
                                             <div class="table-responsive">
                                                 <table class="table widget-26">
                                                     <tbody id="tutor-list">
-                                                    <tr>
-                                                        <td>
-                                                            <div class="widget-26-job-emp-img">
-                                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                                     alt="Company"/>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-title">
-                                                                <a href="#">Marketing &amp; Communication Supervisor</a>
-                                                                <p class="m-0"><a href="#" class="employer-name">AxiomUI
-                                                                    Llc.</a> <span
-                                                                        class="text-muted time">2 days ago</span></p>
-                                                            </div>
-                                                        </td>
 
-                                                        <td>
-                                                            <div class="widget-26-job-info">
-                                                                <p class="type m-0">Part-Time</p>
-                                                                <p class="text-muted m-0">in <span class="location">New York, US</span>
-                                                                </p>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-salary">$ 60/hr</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-category bg-soft-warning">
-                                                                <i class="indicator bg-warning"></i>
-                                                                <span>Subject</span>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -199,9 +154,11 @@
 </div>
 
 
-
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="../js/data_base.js"></script>
 <script src="../js/search.js"></script>
+<script>
+    $('#multiple-select').selectpicker();
+</script>
 </body>
 </html>
