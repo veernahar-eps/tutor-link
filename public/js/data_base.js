@@ -4,7 +4,7 @@ async function checkUserOnDatabase(user) {
     });
 }
 
-function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, school, grad, bio, phone, state, accountType) {
+function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, school, grad, bio, phone, state, major, accountType) {
     const database = firebase.database();
     database.ref('users/' + userId).set({
         userData: {
@@ -17,6 +17,7 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
             bio: bio,
             phone: phone,
             state: state,
+            major: major,
         },
         accountData: {
             accountType: accountType,
@@ -24,7 +25,7 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
             subjects: [
                 'AP Calculus AB',
                 'AP Computer Science Principles'
-            ]
+            ],
         },
     });
 }
