@@ -15,6 +15,8 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     const state = snapshot.val()['userData']['state']
     const grad = snapshot.val()['userData']['grad']
 
+    const price = snapshot.val()['accountData']['price']
+
     document.getElementById("profile_pic").src = photo_url
     document.getElementById("display_name").innerText = first_name + ' '+ last_name
     document.getElementById("display_email").innerText = email
@@ -26,9 +28,11 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     document.getElementById("school").placeholder = school
     document.getElementById("bio").placeholder = bio
     document.getElementById("grad").placeholder = grad
+
+    document.getElementById("price").placeholder = price
 });
 
-let input_fields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", ["state"]]
+let input_fields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number"]
 
 function logOut() {
     firebase.auth().signOut()
