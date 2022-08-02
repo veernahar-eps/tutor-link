@@ -2,6 +2,11 @@ body {
     background: rgb(220, 220, 220)
 }
 
+option{
+    color: black !important;
+    background-color: white;
+}
+
 .form-control:focus {
     box-shadow: none;
     border-color: #00a2ff;
@@ -40,4 +45,9 @@ body {
     color: #fff;
     cursor: pointer;
     border: solid 1px #00a2ff
+}
+
+ul.dropdown-menu.inner{
+    max-height: 380px !important;
+    overflow-y: auto;
 }
