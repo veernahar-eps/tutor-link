@@ -6,19 +6,34 @@ sortType.onchange = (event) => {
     printUsers(sortType.selectedIndex)
 }
 
+function search() {
+    printUsers(document.getElementById("sortingType").selectedIndex)
+}
+
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let search = urlParams.get("search")
+    search = search.substring(0, search.length - 1)
+    console.log(search)
+
     switch (sortingType) {
         // price = low to high
         case 0:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                injectTutorData(snapshot)
+                if (snapshot.val()['accountData']['subjects'].includes(search) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                    injectTutorData(snapshot)
+                }
             });
             break
         // price = high to low
         case 1:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                injectTutorData(snapshot, false)
+                if (snapshot.val()['accountData']['subjects'].includes(search) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                    injectTutorData(snapshot, false)
+                }
             });
             break
     }
@@ -50,7 +65,7 @@ function injectTutorData(snapshot, end = true) {
             </div>\
         </td>\
         <td>\
-            <div class="widget-26-job-salary">'+'Price/hr: $'+snapshot.val()['accountData']['price']+'</div>\
+            <div class="widget-26-job-salary">' + 'Price/hr: $' + snapshot.val()['accountData']['price'] + '</div>\
         </td>\
         <td>\
             <div class="widget-26-job-category bg-soft-warning">\
