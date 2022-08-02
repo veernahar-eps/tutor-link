@@ -21,7 +21,7 @@ function signIn() {
 
 function handleUser(exists, user) {
     if (exists) {
-        window.location.href = "/html/tutor_dash.html"
+        window.location.href = "../html/tutor_dash.html"
     } else {
         document.getElementById('display_name').innerText = user.displayName;
         document.getElementById('profile_pic').src = user.photoURL;
@@ -47,7 +47,7 @@ function handleUser(exists, user) {
                 const lastName = valueOf("last_name")
 
                 addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
-                window.location.href = "/html/tutor_dash.html"
+                window.location.href = "../html/tutor_dash.html"
             }
         });
     }

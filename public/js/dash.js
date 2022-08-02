@@ -18,7 +18,7 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     const price = snapshot.val()['accountData']['price']
 
     document.getElementById("profile_pic").src = photo_url
-    document.getElementById("display_name").innerText = first_name + ' '+ last_name
+    document.getElementById("display_name").innerText = first_name + ' ' + last_name
     document.getElementById("display_email").innerText = email
     document.getElementById("first_name").placeholder = first_name
     document.getElementById("last_name").placeholder = last_name
@@ -43,6 +43,20 @@ function logOut() {
 
         });
 }
+
+
+let arrSelected = [];
+$('#selector').on('change', function () {
+    const selected = $(this).find("option:selected");
+    arrSelected = [];
+
+    selected.each((idx, val) => {
+        arrSelected.push(val.value);
+    });
+
+    console.log(arrSelected)
+});
+
 
 function saveNewData() {
     const first_name = valueOf("first_name")
@@ -69,9 +83,10 @@ function saveNewData() {
         },
         accountData: {
             accountType: 'tutor',
+            subjects: arrSelected,
             price: price
         },
-        
+
     });
 }
 
