@@ -1,24 +1,28 @@
 // TODO change later to get unique users
-printUsers('A')
+printUsers(0)
+
+const sortType = document.getElementById("sortingType")
+sortType.onchange = (event) => {
+    printUsers(sortType.selectedIndex)
+}
 
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
     switch (sortingType) {
         // relevancy, go off of how data is sorted in database
-        case 'R':
-            firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
+        case 0:
+            firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('value', (snapshot) => {
                 injectTutorData(snapshot)
-                console.log('val ' + JSON.stringify(snapshot.val()) + '\n')
             });
         // price = low to high
-        case 'A':
+        case 1:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 console.log(snapshot.val())
                 injectTutorData(snapshot)
             });
             break
         // price = high to low
-        case 'D':
+        case 2:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 for (let i = snapshot.length; i >= 0; i--) {
                     console.log(snapshot[i])
@@ -55,7 +59,7 @@ function injectTutorData(snapshot, end = true) {
             </div>\
         </td>\
         <td>\
-            <div class="widget-26-job-salary">'+'Price: $'+snapshot.val()['accountData']['price'] +'</div>\
+            <div class="widget-26-job-salary">PRICE OF TUTOR SESSION</div>\
         </td>\
         <td>\
             <div class="widget-26-job-category bg-soft-warning">\
