@@ -17,9 +17,8 @@ function printUsers(sortingType) {
             break
         case 'D':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                for (i = snapshot.length; i >= 0; i--) {
-                    console.log(snapshot[i])
-                }
+                // REVERSE
+                console.log(snapshot.val())
                 injectTutorData(snapshot)
             });
             break
