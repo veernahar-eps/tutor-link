@@ -30,6 +30,9 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     document.getElementById("grad").value = grad
 
     document.getElementById("price").value = price
+
+    $('#selector').selectpicker('val', snapshot.val()['accountData']['subjects']);
+    console.log('here')
 });
 
 let fieldIDs = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", 'price']
@@ -88,6 +91,8 @@ function saveNewData() {
                 price: price
             },
 
+        }).then(() => {
+            alert('Profile Updated!')
         });
     }
 }
