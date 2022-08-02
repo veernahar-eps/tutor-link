@@ -4,17 +4,20 @@ printUsers('A')
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
     switch (sortingType) {
+        // relevancy, go off of how data is sorted in database
         case 'R':
             firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
                 injectTutorData(snapshot)
                 console.log('val ' + JSON.stringify(snapshot.val()) + '\n')
             });
+        // price = low to high
         case 'A':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 console.log(snapshot.val())
                 injectTutorData(snapshot)
             });
             break
+        // price = high to low
         case 'D':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
                 for (let i = snapshot.length; i >= 0; i--) {
