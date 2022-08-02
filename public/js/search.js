@@ -40,6 +40,7 @@ async function printUsers(sortingType) {
                 for (let i = 0; i < arrSelected.length; i++) {
                     if (tutor && snapshot.val()['accountData']['subjects'].includes(arrSelected[i])) {
                         injectTutorData(snapshot)
+                        break;
                     }
                 }
             });
@@ -53,6 +54,7 @@ async function printUsers(sortingType) {
                 for (let i = 0; i < arrSelected.length; i++) {
                     if (tutor && snapshot.val()['accountData']['subjects'].includes(arrSelected[i])) {
                         injectTutorData(snapshot, false)
+                        break;
                     }
                 }
             });
