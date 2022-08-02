@@ -1,6 +1,7 @@
 document.getElementById("sign_up").style.display = 'none'
 
 let provider = new firebase.auth.GoogleAuthProvider();
+let fieldIDs = ["uni", "grad", "bio", "phone_number", "state"]
 
 console.log(document.getElementById("email").value.length)
 console.log(document.getElementById("email").placeholder.length)
@@ -33,24 +34,21 @@ function handleUser(exists, user) {
     
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
-        console.log('Click happened for: ' + e.target.id);
-        if (fieldsFull) {
-            const uni = document.getElementById('uni').value;
-            const grad = document.getElementById('grad').value;
-            const bio = document.getElementById('bio').value;
-            const phone = document.getElementById('phone_number').value;
-            const state = document.getElementById('state').value;
-            const email = valueOf("email")
-            const firstName = valueOf("first_name")
-            const lastName = valueOf("last_name")
+            console.log('Click happened for: ' + e.target.id);
+            if (fieldsFull) {
+                const uni = document.getElementById('uni').value;
+                const grad = document.getElementById('grad').value;
+                const bio = document.getElementById('bio').value;
+                const phone = document.getElementById('phone_number').value;
+                const state = document.getElementById('state').value;
+                const email = valueOf("email")
+                const firstName = valueOf("first_name")
+                const lastName = valueOf("last_name")
     
-            addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
-            window.location.href = "/html/dash.html"
-        } else {
-            // display red
-        }
-                
-            });
+                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
+                window.location.href = "/html/dash.html"
+            }   
+        });
     }
 }
 
@@ -69,7 +67,13 @@ function valueOf(elementID) {
 }
 
 function fieldsFull() {
-    return false
-    var bio = document.getElementById("bio")
-bio.style.border = 'solid 3px red'
+    fieldState = true
+    fieldIDs.forEach((val, index) => {
+        if (document.getElementById(val).value.length === 0) {
+            console.log('EMPTY ' + val)
+            document.getElementById(val).style.border = 'solid 1px red'
+            fieldState = false
+        }
+    })
+    return fieldState
 }
