@@ -27,6 +27,18 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
                 // 'AP Computer Science Principles'
             ],
         },
+        orders: [
+
+        ]
+    });
+}
+
+function sendOrder(tutorUserId, studentUserId) {
+    const database = firebase.database();
+    database.ref('users/' + tutorUserId).update({
+        orders: [
+            studentUserId
+        ]
     });
 }
 

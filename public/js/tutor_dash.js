@@ -32,6 +32,7 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     document.getElementById("price").value = price
 
     $('#selector').selectpicker('val', snapshot.val()['accountData']['subjects']);
+
     console.log('here')
 });
 
