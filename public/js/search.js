@@ -55,7 +55,7 @@ function injectTutorData(snapshot, end = true) {
             </div>\
         </td>\
         <td>\
-            <div class="widget-26-job-salary">PRICE OF TUTOR SESSION</div>\
+            <div class="widget-26-job-salary">'+'Price: $'+snapshot.val()['accountData']['price'] +'</div>\
         </td>\
         <td>\
             <div class="widget-26-job-category bg-soft-warning">\
