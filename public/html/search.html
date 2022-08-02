@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 
 
     <link rel="stylesheet" href="../css/styles.css">
@@ -59,10 +61,44 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row no-gutters">
-                                            <div class="col-lg-11 col-md-6 col-sm-12 p-0">
-                                                <input type="text" placeholder="Search by Major" class="form-control"
-                                                       id="search" name="search">
-                                            </div>
+                                                <select style="color: black; max-height: 50%" class="selectpicker form-control" multiple="multiple" data-live-search="true">
+                                                    <option>AP Research</option>
+                                                    <option>AP Seminar</option>
+                                                    <option>AP Art and Design Program</option>
+                                                    <option>AP Art History</option>
+                                                    <option>AP Music Theory</option>
+                                                    <option>AP English Language and Composition</option>
+                                                    <option>AP English Literature and Composition</option>
+                                                    <option>AP Comparative Government and Politics</option>
+                                                    <option>AP European History</option>
+                                                    <option>AP Human Geography</option>
+                                                    <option>AP Macroeconomics</option>
+                                                    <option>AP Microeconomics</option>
+                                                    <option>AP Psychology</option>
+                                                    <option>AP United States Government and Politics</option>
+                                                    <option>AP United States History</option>
+                                                    <option>AP World History: Modern</option>
+                                                    <option>AP Calculus AB</option>
+                                                    <option>AP Calculus BC</option>
+                                                    <option>AP Computer Science A</option>
+                                                    <option>AP Computer Science Principles</option>
+                                                    <option>AP Statistics</option>
+                                                    <option>AP Biology</option>
+                                                    <option>AP Chemistry</option>
+                                                    <option>AP Environmental Science</option>
+                                                    <option>AP Physics 1: Algebra-Based</option>
+                                                    <option>AP Physics 2: Algebra-Based</option>
+                                                    <option>AP Physics C: Electricity and Magnetism</option>
+                                                    <option>AP Physics C: Mechanics</option>
+                                                    <option>AP Chinese Language and Culture</option>
+                                                    <option>AP French Language and Culture</option>
+                                                    <option>AP German Language and Culture</option>
+                                                    <option>AP Italian Language and Culture</option>
+                                                    <option>AP Japanese Language and Culture</option>
+                                                    <option>AP Latin</option>
+                                                    <option>AP Spanish Language and Culture</option>
+                                                    <option>AP Spanish Literature and Culture</option>
+                                                </select>
                                             <div class="col-lg-1 col-md-3 col-sm-12 p-0">
                                                 <button type="submit" class="btn btn-base" onclick="search()">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

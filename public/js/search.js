@@ -16,14 +16,13 @@ function printUsers(sortingType) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let search = urlParams.get("search")
-    search = search.substring(0, search.length - 1)
     console.log(search)
 
     switch (sortingType) {
         // price = low to high
         case 0:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                if (snapshot.val()['accountData']['subjects'].includes(search) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                if ((search === null || snapshot.val()['accountData']['subjects'].includes(search)) && snapshot.val()['accountData']['accountType'] === 'tutor') {
                     injectTutorData(snapshot)
                 }
             });
@@ -31,7 +30,7 @@ function printUsers(sortingType) {
         // price = high to low
         case 1:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                if (snapshot.val()['accountData']['subjects'].includes(search) && snapshot.val()['accountData']['accountType'] === 'tutor') {
+                if ((search === null || snapshot.val()['accountData']['subjects'].includes(search)) && snapshot.val()['accountData']['accountType'] === 'tutor') {
                     injectTutorData(snapshot, false)
                 }
             });
