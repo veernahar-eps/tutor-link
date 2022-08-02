@@ -20,19 +20,19 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     document.getElementById("profile_pic").src = photo_url
     document.getElementById("display_name").innerText = first_name + ' ' + last_name
     document.getElementById("display_email").innerText = email
-    document.getElementById("first_name").placeholder = first_name
-    document.getElementById("last_name").placeholder = last_name
-    document.getElementById("phone_number").placeholder = phone
-    document.getElementById("email").placeholder = email
-    document.getElementById("state").placeholder = state
-    document.getElementById("school").placeholder = school
-    document.getElementById("bio").placeholder = bio
-    document.getElementById("grad").placeholder = grad
+    document.getElementById("first_name").value = first_name
+    document.getElementById("last_name").value = last_name
+    document.getElementById("phone_number").value = phone
+    document.getElementById("email").value = email
+    document.getElementById("state").value = state
+    document.getElementById("school").value = school
+    document.getElementById("bio").value = bio
+    document.getElementById("grad").value = grad
 
-    document.getElementById("price").placeholder = price
+    document.getElementById("price").value = price
 });
 
-let input_fields = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number"]
+let fieldIDs = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", 'price']
 
 function logOut() {
     firebase.auth().signOut()
@@ -69,25 +69,27 @@ function saveNewData() {
     const state = valueOf("state")
     const price = valueOf("price")
 
-    firebase.database().ref('users/' + current_uid).set({
-        userData: {
-            firstName: first_name,
-            lastName: last_name,
-            email: email,
-            photoURL: json['photoURL'],
-            school: school,
-            grad: grad,
-            bio: bio,
-            phone: phone,
-            state: state,
-        },
-        accountData: {
-            accountType: 'tutor',
-            subjects: arrSelected,
-            price: price
-        },
+    if (fieldsFull()) {
+        firebase.database().ref('users/' + current_uid).set({
+            userData: {
+                firstName: first_name,
+                lastName: last_name,
+                email: email,
+                photoURL: json['photoURL'],
+                school: school,
+                grad: grad,
+                bio: bio,
+                phone: phone,
+                state: state,
+            },
+            accountData: {
+                accountType: 'tutor',
+                subjects: arrSelected,
+                price: price
+            },
 
-    });
+        });
+    }
 }
 
 function valueOf(elementID) {
@@ -98,6 +100,21 @@ function valueOf(elementID) {
             return document.getElementById(elementID).value
         }
     } catch (error) {
-        alert('One or more fields were empty!')
+
     }
 }
+
+function fieldsFull() {
+    fieldState = true
+    fieldIDs.forEach((val, index) => {
+        if (document.getElementById(val).value.length === 0) {
+            console.log('EMPTY ' + val)
+            document.getElementById(val).style.border = 'solid 1px red'
+            fieldState = false
+        } else {
+            document.getElementById(val).style.border = 'solid 1px lightgray'
+        }
+    });
+    return fieldState
+}
+

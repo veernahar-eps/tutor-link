@@ -64,6 +64,18 @@ function injectTutorData(snapshot, end = true) {
     console.log(snapshot.key)
 
     var newElement = document.createElement("tr");
+
+    const subjects = snapshot.val()['accountData']['subjects']
+    let string = ''
+    subjects.forEach((val) => {
+        string += '\
+            <div class="widget-26-job-category bg-soft-warning">\
+            <i class="indicator bg-warning"></i>\
+        <span>' + val + '</span>\
+    </div>\
+        ';
+    })
+
     newElement.innerHTML = '\
         <tr>\
         <td>\
@@ -81,7 +93,6 @@ function injectTutorData(snapshot, end = true) {
         <td>\
             <div class="widget-26-job-info">\
                 <p class="type m-0">' + snapshot.val()['userData']['school'] + '</p>\
-                <p class="text-muted m-0">in <span class="location">LOCATION OF MAJOR</span>\
                 </p>\
             </div>\
         </td>\
@@ -89,10 +100,7 @@ function injectTutorData(snapshot, end = true) {
             <div class="widget-26-job-salary">' + 'Price/hr: $' + snapshot.val()['accountData']['price'] + '</div>\
         </td>\
         <td>\
-            <div class="widget-26-job-category bg-soft-warning">\
-                <i class="indicator bg-warning"></i>\
-                <span>SUBJECT</span>\
-            </div>\
+            ' + string + '\
         </td>\
         \<td>\
             <div class="widget-26-see-profile">\
