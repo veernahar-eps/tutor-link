@@ -3,11 +3,11 @@ printUsers('A')
 
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
-    switch(sortingType) {
+    switch (sortingType) {
         case 'R':
             firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
                 injectTutorData(snapshot)
-                console.log(snapshot.val() + '\n')
+                console.log('val ' + JSON.stringify(snapshot.val()) + '\n')
             });
         case 'A':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
@@ -17,17 +17,18 @@ function printUsers(sortingType) {
             break
         case 'D':
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                // REVERSE
-                console.log(snapshot.val())
-                injectTutorData(snapshot)
+                for (let i = snapshot.length; i >= 0; i--) {
+                    console.log(snapshot[i])
+                }
+                injectTutorData(snapshot, false)
             });
             break
     }
 }
 
-function injectTutorData(snapshot) {
+function injectTutorData(snapshot, end = true) {
     console.log(snapshot.key)
-    
+
     var newElement = document.createElement("tr");
     newElement.innerHTML = '\
         <tr>\
@@ -70,7 +71,13 @@ function injectTutorData(snapshot) {
                                                                     </td>\
     </tr>\
     ';
-    document.getElementById("tutor-list").appendChild(newElement);
+
+    if (end) {
+        document.getElementById("tutor-list").appendChild(newElement);
+
+    } else {
+        document.getElementById("tutor-list").innerHTML = newElement.innerHTML + document.getElementById("tutor-list").innerHTML;
+    }
 
     var element = document.createElement("div");
     element.innerHTML = '<div class="modal fade" id="exampleModalCenter' + snapshot.key + '" tabIndex="-1" role="dialog"\
