@@ -1,7 +1,7 @@
 document.getElementById("sign_up").style.display = 'none'
 
 let provider = new firebase.auth.GoogleAuthProvider();
-let fieldIDs = ["uni", "grad", "bio", "phone_number", "state"]
+let fieldIDs = ["uni", "grad", "bio", "phone_number", "state", "major"]
 
 console.log(document.getElementById("email").value.length)
 console.log(document.getElementById("email").placeholder.length)
@@ -42,11 +42,12 @@ function handleUser(exists, user) {
                 const bio = document.getElementById('bio').value;
                 const phone = document.getElementById('phone_number').value;
                 const state = document.getElementById('state').value;
+                const major = document.getElementById('major').value;
                 const email = valueOf("email")
                 const firstName = valueOf("first_name")
                 const lastName = valueOf("last_name")
 
-                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
+                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, major, 'tutor')
                 window.location.href = "/html/tutor_dash.html"
             }
         });
