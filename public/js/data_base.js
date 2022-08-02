@@ -21,10 +21,10 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
         },
         accountData: {
             accountType: accountType,
-            price: 50,
+            price: 0,
             subjects: [
-                'AP Calculus AB',
-                'AP Computer Science Principles'
+                // 'AP Calculus AB',
+                // 'AP Computer Science Principles'
             ],
         },
     });
