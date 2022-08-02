@@ -35,7 +35,7 @@ function handleUser(exists, user) {
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
             console.log('Click happened for: ' + e.target.id);
-            if (fieldsFull) {
+            if (fieldsFull()) {
                 const uni = document.getElementById('uni').value;
                 const grad = document.getElementById('grad').value;
                 const bio = document.getElementById('bio').value;
@@ -73,7 +73,9 @@ function fieldsFull() {
             console.log('EMPTY ' + val)
             document.getElementById(val).style.border = 'solid 1px red'
             fieldState = false
+        } else {
+            document.getElementById(val).style.border = 'solid 1px lightgray'
         }
-    })
+    });
     return fieldState
 }
