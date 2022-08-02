@@ -1,15 +1,41 @@
 // TODO change later to get unique users
 printUsers()
 
-function printUsers() {
-    firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
-        var newElement = document.createElement("tr");
-        newElement.innerHTML = '\
+
+
+function printUsers(sortingType) {
+    document.getElementById("tutor-list").innerHTML = '';
+    switch(sortingType) {
+        case 'R':
+            firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('child_added', (snapshot) => {
+                injectTutorData(snapshot)
+                console.log(snapshot.val() + '\n')
+                var objAssetSelection = $.parseJSON(snapshot.val());
+                objAssetSelection.info.reverse();
+                console.log(objAssetSelection);
+            });
+        case 'A':
+            firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
+                injectTutorData(snapshot)
+            });
+            break
+        case 'D':
+            firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
+                injectTutorData(snapshot)
+            });
+
+            break
+    }
+}
+
+function injectTutorData(snapshot) {
+    var newElement = document.createElement("tr");
+    newElement.innerHTML = '\
         <tr>\
         <td>\
             <div class="widget-26-job-emp-img">\
                 <img referrerpolicy="no-referrer" src="' + snapshot.val()['userData']['photoURL'] + '"\
-                     alt="Company"/>\
+                    alt="Company"/>\
             </div>\
         </td>\
         <td>\
@@ -36,6 +62,5 @@ function printUsers() {
         </td>\
     </tr>\
     ';
-        document.getElementById("tutor-list").appendChild(newElement);
-    });
+    document.getElementById("tutor-list").appendChild(newElement);
 }
