@@ -49,6 +49,7 @@ function saveNewData() {
     const bio = valueOf("bio")
     const phone = valueOf("phone_number")
     const state = valueOf("state")
+    const price = valueOf("price")
 
     firebase.database().ref('users/' + current_uid).set({
         userData: {
@@ -63,7 +64,8 @@ function saveNewData() {
             state: state,
         },
         accountData: {
-            accountType: 'tutor'
+            accountType: 'tutor',
+            price: price
         },
         
     });

@@ -19,7 +19,8 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
             state: state,
         },
         accountData:  {
-            accountType: accountType
+            accountType: accountType,
+            price: 0
         },
     });
 }
