@@ -28,6 +28,7 @@ function handleUser(exists, user) {
                 window.location.href = "../html/student_dash.html"
             }
         })
+
     } else {
         document.getElementById('display_name').innerText = user.displayName;
         document.getElementById('profile_pic').src = user.photoURL;
@@ -52,8 +53,8 @@ function handleUser(exists, user) {
                 const firstName = valueOf("first_name")
                 const lastName = valueOf("last_name")
 
-                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
-                window.location.href = "../html/tutor_dash.html"
+                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'student', 'student')
+                window.location.href = "../html/student_dash.html"
             }
         });
     }
