@@ -34,10 +34,12 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
 }
 
 function sendOrder(tutorUserId, studentUserId) {
+    console.log(tutorUserId)
+    console.log(studentUserId)
     const database = firebase.database();
     database.ref('users/' + tutorUserId).update({
         orders: [
-            studentUserId
+            studentUserId,
         ]
     });
 }

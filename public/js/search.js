@@ -123,16 +123,22 @@ function injectTutorData(snapshot, end = true) {
         document.getElementById("tutor-list").innerHTML = newElement.innerHTML + document.getElementById("tutor-list").innerHTML;
     }
 
+    const key = window.localStorage.key(1)
+    const data = window.localStorage.getItem(key)
+
+    const json = JSON.parse(data)
+
+    console.log(json)
+
+
+    const tutor = snapshot.key;
+
     var element = document.createElement("div");
-    element.innerHTML = '<div class="modal fade" id="exampleModalCenter' + snapshot.key + '" tabIndex="-1" role="dialog"\
-                                    aria-labelledby="exampleModalCenterTitle"\
-                                    aria-hidden="true">\
-            <div class="modal-dialog modal-lg" role="document" style="top: 25%">\
-                <div class="container mt-5">\
-                    <div class="row d-flex justify-content-center">\
-                        <div class="col-md-7">\
-                            <div class="card p-3 py-4">\
-                                <div class="text-center">\
+
+    element.innerHTML = '<div class="modal fade" id="exampleModalCenter' + snapshot.key + '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">\
+        <div class="modal-dialog" role="document" style="top: 25%">\
+        <div class="modal-content p-5 ">\
+        <div class="text-center">\
                                     <img referrerPolicy="no-referrer" src="' + snapshot.val()['userData']['photoURL'] + '" width="100"\
                                          class="rounded-circle">\
                                 </div>\
@@ -146,17 +152,18 @@ function injectTutorData(snapshot, end = true) {
                                     </div>\
     \
                                     <div class="buttons">\
-                                        <button type="button" class="btn btn-primary px-4 ms-3">Contact</button>\
+                                        <button id="'+snapshot.key+'" type="button" class="btn btn-primary px-4 ms-3">Contact</button>\
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
                                     </div>\
                                 </div>\
-                            </div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-        ';
+</div>\
+</div>\
+</div>\
+    ';
 
     document.body.appendChild(element)
+
+    document.getElementById(snapshot.key).addEventListener('click', (e)=>{
+        sendOrder(tutor, json['uid'])
+    })
 }

@@ -52,7 +52,7 @@ function handleUser(exists, user) {
                 const firstName = valueOf("first_name")
                 const lastName = valueOf("last_name")
 
-                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'tutor')
+                addNewUserToDatabase(user.uid, firstName, lastName, email, user.photoURL, uni, grad, bio, phone, state, 'major','tutor')
                 window.location.href = "../html/tutor_dash.html"
             }
         });
