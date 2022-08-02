@@ -9,24 +9,15 @@ sortType.onchange = (event) => {
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
     switch (sortingType) {
-        // relevancy, go off of how data is sorted in database
-        case 0:
-            firebase.database().ref("users").orderByChild("accountData/accountType").equalTo("tutor").on('value', (snapshot) => {
-                injectTutorData(snapshot)
-            });
         // price = low to high
-        case 1:
+        case 0:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                console.log(snapshot.val())
                 injectTutorData(snapshot)
             });
             break
         // price = high to low
-        case 2:
+        case 1:
             firebase.database().ref("users").orderByChild("accountData/price").on('child_added', (snapshot) => {
-                for (let i = snapshot.length; i >= 0; i--) {
-                    console.log(snapshot[i])
-                }
                 injectTutorData(snapshot, false)
             });
             break
@@ -59,7 +50,7 @@ function injectTutorData(snapshot, end = true) {
             </div>\
         </td>\
         <td>\
-            <div class="widget-26-job-salary">PRICE OF TUTOR SESSION</div>\
+            <div class="widget-26-job-salary">'+'Price/hr: $'+snapshot.val()['accountData']['price']+'</div>\
         </td>\
         <td>\
             <div class="widget-26-job-category bg-soft-warning">\
