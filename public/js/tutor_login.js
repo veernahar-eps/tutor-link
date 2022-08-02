@@ -38,9 +38,9 @@ function handleUser(exists, user) {
             const bio = document.getElementById('bio').value;
             const phone = document.getElementById('phone_number').value;
             const state = document.getElementById('state').value;
-            const email = document.getElementById('email').value;
-            const firstName = document.getElementById('first_name').value;
-            const lastName = document.getElementById('last_name').value
+            const email = valueOf("email")
+            const firstName = valueOf("first_name")
+            const lastName = valueOf("last_name")
 
             // check if empty when button press called
 
@@ -54,4 +54,16 @@ async function checkUserOnDatabase(user) {
     await firebase.database().ref(`users/${user.uid}`).once("value").then(snapshot => {
         handleUser(snapshot.exists(), user);
     });
+}
+
+function valueOf(elementID) {
+    try {
+        if (document.getElementById(elementID).value.length === 0) {
+            return document.getElementById(elementID).placeholder
+        } else {
+            return document.getElementById(elementID).value
+        }
+    } catch (error) {
+        alert('One or more fields were empty!')
+    }
 }

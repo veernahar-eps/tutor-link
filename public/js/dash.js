@@ -79,5 +79,4 @@ function valueOf(elementID) {
     } catch (error) {
         alert('One or more fields were empty!')
     }
-    
 }
