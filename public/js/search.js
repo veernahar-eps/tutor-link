@@ -1,6 +1,5 @@
 // TODO change later to get unique users
-printUsers()
-
+printUsers('A')
 
 function printUsers(sortingType) {
     document.getElementById("tutor-list").innerHTML = '';
@@ -27,6 +26,11 @@ function printUsers(sortingType) {
 
 function injectTutorData(snapshot) {
     console.log(snapshot.key)
+    var ReverseArray = [];
+    var length = snapshot.length;
+    for(var i = length-1;i>=0;i--){
+        ReverseArray.push(ActualArray[i]);
+    }
     var newElement = document.createElement("tr");
     newElement.innerHTML = '\
         <tr>\
