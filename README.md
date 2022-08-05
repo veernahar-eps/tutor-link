@@ -1,5 +1,4 @@
 # __Tutor Link__
-------------------------------------------------------------------
 This repository is for the __Congressional App Challenge 2022__.
 
 ##  __Summary__
