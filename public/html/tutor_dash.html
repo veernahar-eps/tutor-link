@@ -12,16 +12,16 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
-
-
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/dash.css">
+    <link rel="stylesheet" href="../css/search.css">
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -66,7 +66,9 @@
             <div class="row">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img referrerpolicy="no-referrer" style="margin-bottom: 20px" id="profile_pic" class="rounded-circle mt-5" width="130px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        <img referrerpolicy="no-referrer" style="margin-bottom: 20px" id="profile_pic"
+                             class="rounded-circle mt-5" width="130px"
+                             src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                         <span id="display_name" class="font-weight-bold">Edogaru</span>
                         <span id="display_email" class="text-black-50">edogaru@mail.com.my</span>
 
@@ -74,7 +76,8 @@
                     </div>
                     <div class="col-md-12">
                         <label class="labels" for="bio">Bio</label>
-                        <textarea id="bio" style="height: 200px; margin-bottom: 20px" type="text" class="form-control" placeholder="Bio"></textarea>
+                        <textarea id="bio" style="height: 200px; margin-bottom: 20px" type="text" class="form-control"
+                                  placeholder="Bio"></textarea>
                     </div>
 
                 </div>
@@ -84,21 +87,52 @@
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label><input id="first_name" type="text" class="form-control" placeholder="first name" value=""></div>
-                            <div class="col-md-6"><label class="labels">Last Name</label><input id="last_name" type="text" class="form-control" value="" placeholder="last name"></div>
+                            <div class="col-md-6"><label class="labels">Name</label><input id="first_name" type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="first name"
+                                                                                           value=""></div>
+                            <div class="col-md-6"><label class="labels">Last Name</label><input id="last_name"
+                                                                                                type="text"
+                                                                                                class="form-control"
+                                                                                                value=""
+                                                                                                placeholder="last name">
+                            </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input id="phone_number" type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email ID</label><input id="email" type="text" class="form-control" placeholder="enter email id" value=""></div>
-                            <div class="col-md-12"><label class="labels">University/School</label><input id="school" type="text" class="form-control" placeholder="University/School" value=""></div>
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input id="phone_number"
+                                                                                                     type="text"
+                                                                                                     class="form-control"
+                                                                                                     placeholder="enter phone number"
+                                                                                                     value=""></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input id="email" type="text"
+                                                                                                class="form-control"
+                                                                                                placeholder="enter email id"
+                                                                                                value=""></div>
+                            <div class="col-md-12"><label class="labels">University/School</label><input id="school"
+                                                                                                         type="text"
+                                                                                                         class="form-control"
+                                                                                                         placeholder="University/School"
+                                                                                                         value=""></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Graduation Year</label><input id="grad" type="text" class="form-control" placeholder="Graduation year" value=""></div>
-                            <div class="col-md-6"><label class="labels">State/Region</label><input id="state" type="text" class="form-control" value="" placeholder="state"></div>
+                            <div class="col-md-6"><label class="labels">Graduation Year</label><input id="grad"
+                                                                                                      type="text"
+                                                                                                      class="form-control"
+                                                                                                      placeholder="Graduation year"
+                                                                                                      value=""></div>
+                            <div class="col-md-6"><label class="labels">State/Region</label><input id="state"
+                                                                                                   type="text"
+                                                                                                   class="form-control"
+                                                                                                   value=""
+                                                                                                   placeholder="state">
+                            </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <button onclick="saveNewData()" class="btn btn-primary profile-button" type="button">Save Profile</button>
-                            <button onclick="logOut()" class="btn btn-primary profile-button" type="button">Log Out</button>
+                            <button onclick="saveNewData()" class="btn btn-primary profile-button" type="button">Save
+                                Profile
+                            </button>
+                            <button onclick="logOut()" class="btn btn-primary profile-button" type="button">Log Out
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -110,7 +144,8 @@
                     <br>
                     <div class="col-md-12" style="color: black">
                         <label class="labels">Select Classes to Tutor:</label>
-                        <select id="selector" style="color: black; max-height: 50%" class="selectpicker form-control" multiple="multiple" data-max-options="3" data-live-search="true">
+                        <select id="selector" style="color: black; max-height: 50%" class="selectpicker form-control"
+                                multiple="multiple" data-max-options="3" data-live-search="true">
                             <option>AP Research</option>
                             <option>AP Seminar</option>
                             <option>AP Art and Design Program</option>
@@ -150,7 +185,10 @@
                         </select>
                     </div>
                     <br>
-                    <div class="col-md-12"><label class="labels">Price</label><input id="price" type="text" class="form-control" placeholder="Price" value=""></div><br>
+                    <div class="col-md-12"><label class="labels">Price</label><input id="price" type="text"
+                                                                                     class="form-control"
+                                                                                     placeholder="Price" value=""></div>
+                    <br>
                 </div>
 
             </div>
@@ -159,10 +197,112 @@
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row" style="min-width: 100%">
                 <div class="mt-5 text-center" style="margin-bottom: 50px; min-width: 100%">
-                    <a class="logo-text text-center" style="font-size: 30px">Orders</a>
+                    <a class="logo-text text-center" style="font-size: 30px">Inquiries</a>
                 </div>
             </div>
         </div>
+
+        <div id="order-list">
+            <div class="container rounded bg-white mt-5 mb-3">
+                <table class="table widget-26">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="widget-26-job-emp-img"><img referrerpolicy="no-referrer"
+                                                                    src="https://lh3.googleusercontent.com/a-/AFdZucrQTm0I3cj9OYgyqKgA_kyZK1AMWteiESZtbaATwQ=s96-c"
+                                                                    alt="Company"></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-title"><a href="#">student name</a>
+                                <p class="m-0"><a href="#" class="employer-name">undefined</a></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-info"><p class="type m-0">student school</p>
+                                <p></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-salary">studentemail@provider.com</div>
+                        </td>
+                        <td>
+                            <div class="widget-26-see-profile">
+                                <button type="button" class="form-control"
+                                        onclick="document.location =  'mailto:yasinsajeed4568@gmail.com'"> Email
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="container rounded bg-white mt-3 mb-3">
+                <table class="table widget-26">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="widget-26-job-emp-img"><img referrerpolicy="no-referrer"
+                                                                    src="https://lh3.googleusercontent.com/a-/AFdZucrQTm0I3cj9OYgyqKgA_kyZK1AMWteiESZtbaATwQ=s96-c"
+                                                                    alt="Company"></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-title"><a href="#">student name</a>
+                                <p class="m-0"><a href="#" class="employer-name">undefined</a></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-info"><p class="type m-0">student school</p>
+                                <p></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-salary">studentemail@provider.com</div>
+                        </td>
+                        <td>
+                            <div class="widget-26-see-profile">
+                                <button type="button" class="form-control"
+                                        onclick="document.location =  'mailto:yasinsajeed4568@gmail.com'"> Email
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="container rounded bg-white mt-3 mb-3">
+                <table class="table widget-26">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="widget-26-job-emp-img"><img referrerpolicy="no-referrer"
+                                                                    src="https://lh3.googleusercontent.com/a-/AFdZucrQTm0I3cj9OYgyqKgA_kyZK1AMWteiESZtbaATwQ=s96-c"
+                                                                    alt="Company"></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-title"><a href="#">student name</a>
+                                <p class="m-0"><a href="#" class="employer-name">undefined</a></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-info"><p class="type m-0">student school</p>
+                                <p></p></div>
+                        </td>
+                        <td>
+                            <div class="widget-26-job-salary">studentemail@provider.com</div>
+                        </td>
+                        <td>
+                            <div class="widget-26-see-profile">
+                                <button type="button" class="form-control"
+                                        onclick="document.location =  'mailto:yasinsajeed4568@gmail.com'"> Email
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
     </div>
 
 
