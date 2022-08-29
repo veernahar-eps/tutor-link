@@ -34,7 +34,10 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     $('#selector').selectpicker('val', snapshot.val()['accountData']['subjects']);
 
     console.log('here')
+    console.log(snapshot.val()['orders'])
 });
+
+addOrders()
 
 let fieldIDs = ["first_name", "last_name", "email", "school", "grad", "bio", "phone_number", 'price']
 
@@ -124,3 +127,5 @@ function fieldsFull() {
     return fieldState
 }
 
+function addOrders() {
+}
