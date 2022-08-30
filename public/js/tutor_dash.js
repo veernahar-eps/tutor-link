@@ -59,7 +59,7 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
                                 <p></p></div>\
                         </td>\
                         <td>\
-                            <div class="widget-26-job-salary">studentemail@provider.com</div>\
+                            <div class="widget-26-job-salary">' + snapshot.val()['userData']['email'] + '</div>\
                         </td>\
                         <td>\
                             <div class="widget-26-see-profile">\
