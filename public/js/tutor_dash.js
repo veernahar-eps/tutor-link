@@ -63,8 +63,7 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
                         </td>\
                         <td>\
                             <div class="widget-26-see-profile">\
-                                <button type="button" class="form-control"\
-                                        onclick="document.location =  'mailto:yasinsajeed4568@gmail.com'"> Email </button>\
+                                <button type="button" class="form-control"> Email </button>\
                             </div>\
                         </td>\
                     </tr>\
