@@ -34,7 +34,47 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
     $('#selector').selectpicker('val', snapshot.val()['accountData']['subjects']);
 
     console.log('here')
-    console.log(snapshot.val()['orders'])
+    const orders = snapshot.val()['orders']
+    Object.entries(orders).forEach(([k,v]) => {
+        // k
+        // v['studentUserId']
+        
+        var newElement = document.createElement("tr")
+        newElement.innerHTML = '\
+        <div class="container rounded bg-white mt-3 mb-3">\
+                <table class="table widget-26">\
+                    <tbody>\
+                    <tr>\
+                        <td>\
+                            <div class="widget-26-job-emp-img"><img referrerpolicy="no-referrer"\
+                                                                    src="' + snapshot.val()['userData']['photoURL'] + '"\
+                                                                    alt="Company"></div>\
+                        </td>\
+                        <td>\
+                            <div class="widget-26-job-title"><a href="#">' + snapshot.val()['userData']['firstName'] + '</a>\
+                                <p class="m-0"><a href="#" class="employer-name">undefined</a></p></div>\
+                        </td>\
+                        <td>\
+                            <div class="widget-26-job-info"><p class="type m-0">' + snapshot.val()['userData']['school'] + '</p>\
+                                <p></p></div>\
+                        </td>\
+                        <td>\
+                            <div class="widget-26-job-salary">studentemail@provider.com</div>\
+                        </td>\
+                        <td>\
+                            <div class="widget-26-see-profile">\
+                                <button type="button" class="form-control"\
+                                        onclick="document.location =  'mailto:yasinsajeed4568@gmail.com'"> Email </button>\
+                            </div>\
+                        </td>\
+                    </tr>\
+                    </tbody>\
+                </table>\
+            </div>\
+            ';
+    })
+    console.log(orders)
+    //console.log(snapshot.val()['orders'])
 });
 
 addOrders()
