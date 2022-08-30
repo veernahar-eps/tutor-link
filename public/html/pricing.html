@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TutorLink Dashboard</title>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script src="../js/app.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pricing.css">
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+              <a class="logo-text">TUTOR LINK</a>
+              <!--            <img class="android-logo-image" src="images/logo.png">-->
+          </span>
+            <div class="android-header-spacer mdl-layout-spacer"></div>
+            <div class="android-navigation-container">
+                <nav class="android-navigation mdl-navigation">
+                    <a id="logged_out" class="mdl-navigation__link mdl-typography--text-uppercase"
+                       href="../index.html">Home</a>
+                </nav>
+            </div>
+            <span class="android-mobile-title mdl-layout-title">
+            <a class="logo-text">TUTOR LINK</a>
+          </span>
+        </div>
+    </div>
+
+    <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <a class="logo-text">TUTOR LINK</a>
+        </span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Home</a>
+        </nav>
+    </div>
+
+    <div class="android-content mdl-layout__content">
+        <div class="container rounded mt-5 mb-5 bg-white">
+            <div class="container">
+                <div class="panel pricing-table">
+
+                    <div class="pricing-plan">
+                        <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="pricing-img">
+                        <h2 class="pricing-header">BASIC</h2>
+                        <ul class="pricing-features">
+                            <li class="pricing-features-item">1 hour</li>
+                            <li class="pricing-features-item">all features</li>
+                        </ul>
+                        <span class="pricing-price">$75/hr</span>
+                        <a href="#/" class="pricing-button">Order</a>
+                    </div>
+
+                    <div class="pricing-plan">
+                        <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="pricing-img">
+                        <h2 class="pricing-header">PROFESSIONAL</h2>
+                        <ul class="pricing-features">
+                            <li class="pricing-features-item">5 hours</li>
+                            <li class="pricing-features-item">all features</li>
+                        </ul>
+                        <span class="pricing-price">$65/HR</span>
+                        <a href="#/" class="pricing-button is-featured">Order</a>
+                    </div>
+
+                    <div class="pricing-plan">
+                        <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="pricing-img">
+                        <h2 class="pricing-header">ADVANCED</h2>
+                        <ul class="pricing-features">
+                            <li class="pricing-features-item">10 hours</li>
+                            <li class="pricing-features-item">all features</li>
+                        </ul>
+                        <span class="pricing-price">$55/HR</span>
+                        <a href="#/" class="pricing-button">Order</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="../js/data_base.js"></script>
+<script src="../js/search.js"></script>
+<script>
+    $('#multiple-select').selectpicker();
+</script>
+</body>
+</html>
