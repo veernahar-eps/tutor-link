@@ -35,7 +35,7 @@ function sendOrder(tutorUserId, studentUserId) {
     console.log(tutorUserId)
     console.log(studentUserId)
     const database = firebase.database();
-    database.ref('users/' + tutorUserId + '/orders').push({
+    database.ref('users/' + tutorUserId + '/orders').push(
         studentUserId
-    });
+    );
 }
