@@ -1,7 +1,7 @@
 document.getElementById("sign_up").style.display = 'none'
 
 let provider = new firebase.auth.GoogleAuthProvider();
-let fieldIDs = ["uni", "grad", "bio", "phone_number", "state", "major"]
+let fieldIDs = ["uni", "grad", "bio", "phone_number", "state", "major", "first_name", "last_name", "email"]
 
 console.log(document.getElementById("email").value.length)
 console.log(document.getElementById("email").placeholder.length)
@@ -36,8 +36,8 @@ function handleUser(exists, user) {
         let displayNameArr = user.displayName.split(' ')
 
         document.getElementById('first_name').value = displayNameArr[0]
-        document.getElementById('last_name').val = displayNameArr[1]
-        document.getElementById('email').val = user.email
+        document.getElementById('last_name').value = displayNameArr[1]
+        document.getElementById('email').value = user.email
 
         document.getElementById("sign_up").style.display = 'block'
         document.getElementById('login-button').addEventListener('click', function (e) {
