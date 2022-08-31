@@ -151,7 +151,7 @@ function injectTutorData(snapshot, end = true) {
                                     </div>\
     \
                                     <div class="buttons">\
-                                        <button id="'+snapshot.key+'" type="button" class="btn btn-primary px-4 ms-3">Contact</button>\
+                                        <button id="'+snapshot.key+'" type="button" class="btn btn-primary px-4 ms-3">Order</button>\
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
                                     </div>\
                                 </div>\
