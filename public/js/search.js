@@ -89,7 +89,6 @@ function injectTutorData(snapshot, end = true) {
         <td>\
             <div class="widget-26-job-title">\
                 <a href="#">' + snapshot.val()['userData']['firstName'] + ' ' + snapshot.val()['userData']['lastName'] + '</a>\
-                <p class="m-0"><a href="#" class="employer-name">' + snapshot.val()['userData']['major'] + '</a>\
             </div>\
         </td>\
         <td>\
