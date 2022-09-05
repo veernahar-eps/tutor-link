@@ -367,7 +367,7 @@ a {
 .android-tv {
     display: inline-block;
     width: 300px;
-    margin-right: 80px;
+    margin-right: 80px
 }
 
 .android-tv .android-screen-image {
@@ -391,7 +391,7 @@ a {
 
 .android-wear-section {
     position: relative;
-    background: url('../images/wear.png') center top no-repeat;
+    background: url('../images/tutorpicture1.jpeg') center top no-repeat;
     background-size: cover;
     height: 800px;
 }
@@ -462,7 +462,7 @@ a {
 }
 
 .android-customized-section-image {
-    background: url('../images/devices.jpg') center top no-repeat;
+    background: url('../images/tutorpicture1.jpeg') center top no-repeat;
     background-size: cover;
     height: 400px;
 }

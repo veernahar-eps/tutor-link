@@ -22,6 +22,7 @@ function addNewUserToDatabase(userId, firstName, lastName, email, photoURL, scho
         accountData: {
             accountType: accountType,
             price: 0,
+            tokens: 0,
             subjects: [
                 // 'AP Calculus AB',
                 // 'AP Computer Science Principles'
