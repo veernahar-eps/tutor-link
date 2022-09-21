@@ -1,4 +1,4 @@
-const key = window.localStorage.key(1)
+const key = window.localStorage.key(window.localStorage.length-1)
 const data = window.localStorage.getItem(key)
 
 const json = JSON.parse(data)
@@ -35,28 +35,34 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
 
     console.log('here')
     const orders = snapshot.val()['orders']
-    try {
-        Object.entries(orders).forEach(([k,v]) => {
+    console.log(Object.entries(orders))
+    if (Object.entries(orders).length > 0) {
+        Object.entries(orders).forEach(([k, v]) => {
             // k
             // v['studentUserId']
-            
-            var newElement = document.createElement("tr")
-            newElement.innerHTML = '\
-            <div class="container rounded bg-white mt-3 mb-3">\
+
+            console.log('hi ' + v)
+
+            firebase.database().ref('users/' + v).once('value', (snapshot) => {
+                console.log(snapshot.val())
+
+                var newElement = document.createElement("d")
+                newElement.innerHTML =
+                    '<div class="container rounded bg-white mt-3 mb-3">\
                     <table class="table widget-26">\
                         <tbody>\
                         <tr>\
                             <td>\
-                                <div class="widget-26-job-emp-img"><img referrerpolicy="no-referrer"\
-                                                                        src="' + snapshot.val()['userData']['photoURL'] + '"\
-                                                                        alt="Company"></div>\
+                                <div class="widget-26-job-emp-img"><img referrerPolicy="no-referrer"\
+                                                                            src="' + snapshot.val()['userData']['photoURL'] + '"\
+                                                                            alt="Company"></div>\
                             </td>\
                             <td>\
-                                <div class="widget-26-job-title"><a href="#">' + snapshot.val()['userData']['firstName'] + '</a>\
+                                <div class="widget-26-job-title"><a href="#">' +snapshot.val()['userData']['firstName'] +'</a>\
                                     <p class="m-0"><a href="#" class="employer-name">undefined</a></p></div>\
                             </td>\
                             <td>\
-                                <div class="widget-26-job-info"><p class="type m-0">' + snapshot.val()['userData']['school'] + '</p>\
+                                <div class="widget-26-job-info"><p class="type m-0">' + snapshot.val()['userData']['school']+ '</p>\
                                     <p></p></div>\
                             </td>\
                             <td>\
@@ -64,21 +70,35 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
                             </td>\
                             <td>\
                                 <div class="widget-26-see-profile">\
-                                    <button type="button" class="form-control"> Email </button>\
+                                    <button type="button" class="form-control"> Email</button>\
                                 </div>\
                             </td>\
                         </tr>\
                         </tbody>\
                     </table>\
-                </div>\
-                ';
-            document.getElementById("order-list").appendChild(newElement);
-    
+                </div>';
+                document.getElementById("order-list").innerHTML += newElement.innerHTML;
+
+            })
+
         })
-    } catch {
-        console.log("empty")
+    } else {
+        console.log('empty')
+        var newElement = document.createElement("d")
+        newElement.innerHTML = '<div class="container rounded bg-white mt-3 mb-3">\
+            <table class="table widget-26">\
+                <tbody>\
+                <tr>\
+                    <td>\
+                        <div class="widget-26-job-title"><a href="#">No Inquiries!</a></div>\
+                    </td>\
+                </tr>\
+                </tbody>\
+            </table>\
+        </div>';
     }
-    
+
+
     console.log(orders)
     //console.log(snapshot.val()['orders'])
 });

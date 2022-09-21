@@ -1,4 +1,4 @@
-const key = window.localStorage.key(1)
+const key = window.localStorage.key(window.localStorage.length-1)
 const data = window.localStorage.getItem(key)
 
 const json = JSON.parse(data)
