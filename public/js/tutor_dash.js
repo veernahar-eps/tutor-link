@@ -40,9 +40,6 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
         Object.entries(orders).forEach(([k, v]) => {
             // k
             // v['studentUserId']
-
-            console.log('hi ' + v)
-
             firebase.database().ref('users/' + v).once('value', (snapshot) => {
                 console.log(snapshot.val())
 
@@ -100,7 +97,6 @@ firebase.database().ref('users/' + current_uid).once('value', (snapshot) => {
 
 
     console.log(orders)
-    //console.log(snapshot.val()['orders'])
 });
 
 addOrders()
