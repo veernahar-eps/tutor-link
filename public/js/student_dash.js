@@ -37,7 +37,7 @@ let fieldIDs = ["first_name", "last_name", "email", "school", "grad", "bio", "ph
 function logOut() {
     firebase.auth().signOut()
         .then(function () {
-            window.location.href = '../index.html'
+            window.location.href = '../home.html'
         })
         .catch(function (error) {
 

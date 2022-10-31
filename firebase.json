@@ -11,8 +11,19 @@
       },
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/home.html"
       }
     ]
+  },
+  "emulators": {
+    "database": {
+      "port": 9000
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true
+    }
   }
 }

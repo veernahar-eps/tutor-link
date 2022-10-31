@@ -37,7 +37,7 @@ async function handleUserexists(user) {
 function logOut() {
     firebase.auth().signOut()
         .then(function () {
-            window.location.href = '../index.html'
+            window.location.href = '../home.html'
         })
         .catch(function (error) {
 
